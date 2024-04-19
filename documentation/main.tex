@@ -1,0 +1,63 @@
+\documentclass[10.5pt]{article}
+% compile with pdflatex deckball_bachelorarbeit.tex
+\usepackage{amssymb} 
+\usepackage{color}
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage[a4paper,bindingoffset=0.2in,%
+            left=3.35cm,right=2.12cm,top=3.75cm,bottom=2.88cm,%
+            footskip=.25in]{geometry}
+\usepackage[T1]{fontenc}
+\begin{document}
+
+\pagenumbering{gobble}
+%{\color{red}Diese erste Seite bzw. Frontseite ist frei gestaltbar.}
+
+%%%%%%%%%%% TITLE PAGE
+
+\begin{titlepage}
+\begin{figure}[t]
+    \centering\includegraphics[width=0.5\textwidth]{HSLU2022logo.svg.png}
+\end{figure}
+
+\begin{center}
+    \textsc{\LARGE{Hochschule Luzern\\}}
+	\textsc{ \LARGE{Computer Science Department\\ }}
+	%\textnormal{ \LARGE{Corso di Laurea Triennale/Magistrale in ???\\}}
+	\vspace{40mm}
+	\fontsize{10mm}{7mm}\selectfont 
+    \textup{TITLE}\\
+\end{center}
+
+\vspace{25mm}
+
+\begin{minipage}[t]{0.47\textwidth}
+	\textnormal{\large{\bf Tutor\\}}
+	{\large Prof. Bob\\ \\}
+ \textnormal{\large{\bf Expert\\}}
+	{\large John}
+\end{minipage}\hfill\begin{minipage}[t]{0.47\textwidth}\raggedleft
+	\textnormal{\large{\bf Candidate\\}}
+	{\large Mallory}
+\end{minipage}
+
+\vspace{20mm}
+
+\centering{\large{Year 2023 }}
+
+\end{titlepage}
+
+
+%%%%%%%%%%%% TITLE PAGE END
+\newpage
+
+\pagenumbering{arabic}
+
+\section{Kapitel 1}
+\lipsum[10]
+
+\section{Kapitel 2}
+
+
+\end{document}
+
