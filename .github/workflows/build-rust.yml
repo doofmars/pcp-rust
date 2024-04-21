@@ -1,0 +1,14 @@
+name: Reusable Rust Workflow
+
+on:
+  workflow_call:
+    # No params required yet
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build Rust Project
+        run: |
+          cd rust
+          cargo build --release
