@@ -5,8 +5,8 @@ on:
     branches:
       - '**'        # matches every branch
       - '!master'   # excludes master
-    paths:
-      - 'rust/**'  # Trigger only if changes are made in the rust directory
+#    paths:
+#      - 'rust/**'  # Trigger only if changes are made in the rust directory
 
 jobs:
   build:
@@ -17,4 +17,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build rust
-        uses: ./.github/workflows/build-rust.yml
+        uses: ./.github/actions/build-rust

@@ -1,0 +1,10 @@
+name: Build rust
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Build Rust Project
+      shell: bash
+      run: |
+        cd rust
+        cargo build --release

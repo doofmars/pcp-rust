@@ -1,0 +1,28 @@
+name: Build latex
+# Checkout repo, run latex builds, rust build and package archive
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Compile documentation LaTeX
+      uses: xu-cheng/latex-action@v3
+      with:
+        working_directory: documentation
+        root_file: main.tex
+    - name: Compile documentation LaTeX twice
+      uses: xu-cheng/latex-action@v3
+      with:
+        working_directory: documentation
+        root_file: main.tex
+
+    - name: Compile presentation LaTeX
+      uses: xu-cheng/latex-action@v3
+      with:
+        working_directory: presentation
+        root_file: main.tex
+    - name: Compile presentation LaTeX twice
+      uses: xu-cheng/latex-action@v3
+      with:
+        working_directory: presentation
+        root_file: main.tex
+
