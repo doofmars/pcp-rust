@@ -12,11 +12,11 @@ end_of_line = lf
 trim_trailing_whitespace = true
 insert_final_newline = true
 
-[*.{diff, md}]
+[*.{diff,md}]
 # Simple breaks in markdown can be achieved by using double trailing spaces
 trim_trailing_whitespace = false
 
-[*.{yaml, yml}]
+[*.{yml,yaml}]
 indent_size = 2
 # There are multi line strings constructs that reserve trailing whitespace,
 # like the literal block scalar and the folding block scalar
@@ -28,5 +28,5 @@ trim_trailing_whitespace = false
 # The only allowed charset for this file type
 charset = latin1
 
-[*.{xml, json, adoc, puml}]
+[*.{xml,json,adoc,puml}]
 indent_size = 2
