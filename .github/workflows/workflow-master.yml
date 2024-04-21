@@ -1,4 +1,5 @@
-name: Build and Package
+name: Master Branch workflow
+# Checkout repo, run latex bilds, rust build and package archive
 
 on:
   push:
@@ -13,37 +14,16 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Compile documentation LaTeX
-        uses: xu-cheng/latex-action@v3
-        with:
-          working_directory: documentation
-          root_file: main.tex
-      - name: Compile documentation LaTeX twice
-        uses: xu-cheng/latex-action@v3
-        with:
-          working_directory: documentation
-          root_file: main.tex
-
-      - name: Compile presentation LaTeX
-        uses: xu-cheng/latex-action@v3
-        with:
-          working_directory: presentation
-          root_file: main.tex
-      - name: Compile presentation LaTeX twice
-        uses: xu-cheng/latex-action@v3
-        with:
-          working_directory: presentation
-          root_file: main.tex
+      - name: Build latex
+        uses: ./.github/actions/build-latex
 
       - name: Move documents
         run: |
           mv documentation/main.pdf main_document.pdf
           mv presentation/main.pdf presentation_document.pdf
 
-      - name: Build Rust Project
-        run: |
-          cd rust
-          cargo build --release
+      - name: Build rust
+        uses: ./.github/actions/build-rust
 
       - name: Prepare release Artifacts
         run: |
