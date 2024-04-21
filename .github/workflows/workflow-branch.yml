@@ -5,8 +5,8 @@ on:
     branches:
       - '**'        # matches every branch
       - '!master'   # excludes master
-#    paths:
-#      - 'rust/**'  # Trigger only if changes are made in the rust directory
+    paths:
+      - 'rust/**'  # Trigger only if changes are made in the rust directory
 
 jobs:
   build:

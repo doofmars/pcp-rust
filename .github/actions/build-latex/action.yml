@@ -1,5 +1,5 @@
 name: Build latex
-# Checkout repo, run latex builds, rust build and package archive
+description: Run latex builds twice to ensure proper chapters
 
 runs:
   using: 'composite'
@@ -25,4 +25,3 @@ runs:
       with:
         working_directory: presentation
         root_file: main.tex
-

@@ -1,4 +1,5 @@
 name: Build rust
+description: Build rust with release flag
 
 runs:
   using: 'composite'
