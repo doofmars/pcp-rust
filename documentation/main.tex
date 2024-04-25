@@ -1,64 +1,67 @@
 \documentclass[10.5pt]{article}
 % compile with pdflatex deckball_bachelorarbeit.tex
-\usepackage{amssymb} 
+\usepackage{amssymb}
 \usepackage{color}
 \usepackage{lipsum}
 \usepackage{graphicx}
 \usepackage[a4paper,bindingoffset=0.2in,%
-            left=3.35cm,right=2.12cm,top=3.75cm,bottom=2.88cm,%
-            footskip=.25in]{geometry}
+    left=3.35cm,right=2.12cm,top=3.75cm,bottom=2.88cm,%
+    footskip=.25in]{geometry}
 \usepackage[T1]{fontenc}
 \begin{document}
 
-\pagenumbering{gobble}
+    \pagenumbering{gobble}
 %{\color{red}Diese erste Seite bzw. Frontseite ist frei gestaltbar.}
 
 %%%%%%%%%%% TITLE PAGE
 
-\begin{titlepage}
-\begin{figure}[t]
-    \centering\includegraphics[width=0.5\textwidth]{HSLU2022logo.svg}
-    \label{fig:hslu-title}
-\end{figure}
+    \begin{titlepage}
+        \begin{figure}[t]
+            \centering\includegraphics[width=0.5\textwidth]{HSLU2022logo}
+            \label{fig:hslu-title}
+        \end{figure}
 
-\begin{center}
-    \textsc{\LARGE{Hochschule Luzern\\}}
-	\textsc{ \LARGE{Computer Science Department\\ }}
-	%\textnormal{ \LARGE{Corso di Laurea Triennale/Magistrale in ???\\}}
-	\vspace{40mm}
-    \textnormal
-    Programming Concepts \& Paradigms\\
-	\vspace{4mm}
-	\fontsize{10mm}{7mm}\selectfont
-    \textup{Rust}\\
-\end{center}
+        \begin{center}
+            \textsc{\LARGE{Hochschule Luzern\\}}
+            \textsc{ \LARGE{Computer Science Department\\ }}
+            %\textnormal{ \LARGE{Corso di Laurea Triennale/Magistrale in ???\\}}
+            \vspace{40mm}
+            \textnormal
+            Programming Concepts \& Paradigms\\
+            \vspace{4mm}
+            \fontsize{10mm}{7mm}\selectfont
+            \textup{Rust}\\
+        \end{center}
 
-\vspace{25mm}
+        \vspace{25mm}
 
-\begin{minipage}[t]{0.47\textwidth}
-	\textnormal{\large{\bf Dozierende\\}}
-	{\large Marcel Baumann \& Ruedi Arnold\\ \\}
-\end{minipage}\hfill\begin{minipage}[t]{0.47\textwidth}\raggedleft
-	\textnormal{\large{\bf Studenten\\}}
-	{\large Roman Schilter \& Jan-Henrik Preuß}
-\end{minipage}
+        \begin{minipage}[t]{0.47\textwidth}
+            \textnormal{\large{\bf Dozierende\\}}
+            {\large Marcel Baumann \& Ruedi Arnold\\ \\}
+        \end{minipage}\hfill\begin{minipage}[t]{0.47\textwidth}
+                                \raggedleft
+                                \textnormal{\large{\bf Studenten\\}}
+                                {\large Roman Schilter \& Jan-Henrik Preuß}
+        \end{minipage}
 
-\vspace{20mm}
+        \vspace{20mm}
 
-\centering{\large{Year 2024 }}
+        \centering{\large{Year 2024 }}
 
-\end{titlepage}
+    \end{titlepage}
 
 
 %%%%%%%%%%%% TITLE PAGE END
-\newpage
+    \newpage
 
-\pagenumbering{arabic}
+    \pagenumbering{arabic}
 
-\section{Kapitel 1}
-\lipsum[10]
 
-\section{Kapitel 2}
+    \section{Kapitel 1}
+    \lipsum[10]
+
+
+    \section{Kapitel 2}
 
 
 \end{document}

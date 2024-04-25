@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
-%% Based one the "beamer-greek-two" template provided 
+%% Based one the "beamer-greek-two" template provided
 %% by the Labo/
 %% Adapted by Fabian Gröger, June 2020
 %%
@@ -12,10 +12,10 @@
 \PassOptionsToPackage{naturalnames}{hyperref}
 
 % to use normal slides ratio
-\documentclass{beamer} 
+%\documentclass{beamer}
 
 % to use 16:9 ratio
-%\documentclass[aspectratio=169, professionalfonts]{beamer} 
+\documentclass[aspectratio=169, professionalfonts]{beamer}
 
 %\usepackage{babel}
 %\usepackage[utf8]{inputenc}
@@ -23,8 +23,8 @@
 
 %%% FONT SELECTION %%%%%%%%%%%%%%%%%
 %%% sans font %%%%%%%%%%
-\usepackage{kmath,kerkis} 
-%\usepackage[default]{gfsneohellenic} 
+\usepackage{kmath,kerkis}
+%\usepackage[default]{gfsneohellenic}
 
 %%% Times NR %%%%%%%%%%
 %\usepackage{newtxtext,newtxmath}
@@ -44,7 +44,7 @@
 \hypersetup{
     colorlinks=true,
     linkcolor=black,
-    filecolor=hslu_pink,      
+    filecolor=hslu_pink,
     urlcolor=hslu_pink,
 }
 
@@ -98,7 +98,7 @@
 %%
 % load HSLU thesis layout
 \usepackage{HSLU_Thesis_Beamer_Layout}
-\setTeipelLayout{draft}% options: "draft" -> Watermark
+\setTeipelLayout{}% options: "draft" -> Watermark
 
 \setcounter{tocdepth}{1}
 %\beamertemplatenavigationsymbolsempty
@@ -107,114 +107,120 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Thesis Info %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	% title
-		\title[PCP-Rust]{Presentation\\ Rust}
-	% author
-		\author[Schilter \& Preuß]{Roman Schilter \& Jan-Henrik Preuß}
-	% supervisor
-		\supervisor{Supervisor}{Marcel Baumann \& Ruedi Arnold}
-	% date
-		\presentationDate{\today}
+% title
+\title[PCP-Rust]{Presentation\\ Rust}
+% author
+\author[Schilter \& Preuß]{Roman Schilter \& Jan-Henrik Preuß}
+% supervisor
+\supervisor{Supervisor}{Marcel Baumann \& Ruedi Arnold}
+% date
+\presentationDate{\today}
 %%%%%%%%%%%%%%%%
 
 \begin{document}
 
 % typeset front slides
-\typesetFrontSlides
+    \typesetFrontSlides
 
 %%%%%%%%%%%%%%%%
 % Start of Slides:
 
 %%%%
-\section{Project overview}
+
+
+    \section{Project overview}
 
 %%
 
-\begin{frame}{Project overview}
-	\framesubtitle{This is a subtitle}
-	\begin{itemize}
-		\item idea was to create a fridge for the HSLU
-	\end{itemize}
-	
-	\note{
-	    Here you can add notes to the slides
-	}
-\end{frame}
+    \begin{frame}{Project overview}
+        \framesubtitle{This is a subtitle}
+        \begin{itemize}
+            \item idea was to create a fridge for the HSLU
+        \end{itemize}
+
+        \note{
+            Here you can add notes to the slides
+        }
+    \end{frame}
 
 %%%%
-\section{Project management}
+
+
+    \section{Project management}
 
 %%
 
-\begin{frame}{Project management:}
-    Insert figures here
-    
-    \note{
-        Still notes
-    }
-\end{frame}
+    \begin{frame}{Project management:}
+        Insert figures here
+
+        \note{
+            Still notes
+        }
+    \end{frame}
 
 %%%%
-\section{Related work}
+
+
+    \section{Related work}
 
 %%
-\subsection{Related work subject \#1}
 
-\begin{frame}{Related work}
-    \framesubtitle{Related work subject \#1}
-    \begin{columns}[T]
+    \subsection{Related work subject \#1}
 
-        \column{0.5\textwidth}
+    \begin{frame}{Related work}
+        \framesubtitle{Related work subject \#1}
+        \begin{columns}[T]
+
+            \column{0.5\textwidth}
             column left
-        
-        \column{0.5\textwidth}
-            column right
-    \end{columns}
-    
-    \note{
-        Notes....
-    }
-	
-\end{frame}
 
-\begin{frame}{Questions and answers}
-    \begin{center}
-    {\fontsize{40}{50}\selectfont Thank You! \\[10pt] Q \& A}
-    \end{center}
-\end{frame}
+            \column{0.5\textwidth}
+            column right
+        \end{columns}
+
+        \note{
+            Notes....
+        }
+
+    \end{frame}
+
+    \begin{frame}{Questions and answers}
+        \begin{center}
+        {\fontsize{40}{50}\selectfont Thank You! \\[10pt] Q \& A}
+        \end{center}
+    \end{frame}
 
 %% REFERENCES
 % allowframebreaks: creates multiple slides if it is to long for one
-\begin{frame}[allowframebreaks]{References}
-    \begin{thebibliography}{}
-        \setbeamertemplate{bibliography item}[book]
-        \bibitem{DeepLearning}
-        Goodfellow, Ian, Yoshua Bengio, and Aaron Courville.
-        \newblock \emph{Deep Learning}.
-        \newblock MIT Press, 2016.
-        
-        \setbeamertemplate{bibliography item}[article]
-        \bibitem{FaceNet}
-        Schroff, Florian, Dmitry Kalenichenko, and James Philbin.
-        \newblock \emph{FaceNet: A Unified Embedding for Face Recognition and Clustering}, 2015.
-        \newblock \url{https://arxiv.org/abs/1503.03832}
-        
-        \setbeamertemplate{bibliography item}[online]
-        \bibitem{DCASE}
-        Dekkers, Lauwereins, Thoen et al.
-        \newblock \emph{DCASE Challenge 2018 Task 5}, 2018.
-        \newblock \url{http://dcase.community/challenge2018/task-monitoring-domestic-activities}
-    \end{thebibliography}
-\end{frame}
+    \begin{frame}[allowframebreaks]{References}
+        \begin{thebibliography}{}
+            \setbeamertemplate{bibliography item}[book]
+            \bibitem{DeepLearning}
+            Goodfellow, Ian, Yoshua Bengio, and Aaron Courville.
+            \newblock \emph{Deep Learning}.
+            \newblock MIT Press, 2016.
+
+            \setbeamertemplate{bibliography item}[article]
+            \bibitem{FaceNet}
+            Schroff, Florian, Dmitry Kalenichenko, and James Philbin.
+            \newblock \emph{FaceNet: A Unified Embedding for Face Recognition and Clustering}, 2015.
+            \newblock \url{https://arxiv.org/abs/1503.03832}
+
+            \setbeamertemplate{bibliography item}[online]
+            \bibitem{DCASE}
+            Dekkers, Lauwereins, Thoen et al.
+            \newblock \emph{DCASE Challenge 2018 Task 5}, 2018.
+            \newblock \url{http://dcase.community/challenge2018/task-monitoring-domestic-activities}
+        \end{thebibliography}
+    \end{frame}
 
 %% APPENDIX
-\appendix
 
 %%%% BACKUP
-\begin{frame}{Backup Slides}
-	\framesubtitle{backup slides}
-	Backup!
-\end{frame}
+    \begin{frame}{Backup Slides}
+        \framesubtitle{backup slides}
+        Backup!
+    \end{frame}
 
 %%
 \end{document}
