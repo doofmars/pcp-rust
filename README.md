@@ -36,7 +36,7 @@ Current Rust version is `1.77.2`
 - Attach main cargo toml file using the IDE by opening the `rust/Cargo.toml` and following the IDE suggestion (see the following figure)
 - Open any source file and use the IDE to execute
 
-![rust-rover-setup.png](documentation%2Fimages%2Frust-rover-setup.png)
+![rust-rover-setup.png](documentation/images/rust-rover-setup.png)
 
 ### CLI
 
@@ -65,7 +65,7 @@ Generally install [texlive](https://www.tug.org/texlive/quickinstall.html) (Focu
 - Create a new build configuration pointing to the `main.tex` file
 - Build the documentation (The created documentation is stored in the `out` folder)
 
-![latex-build-config.png](documentation%2Fimages%2Flatex-build-config.png)
+![latex-build-config.png](documentation/images/latex-build-config.png)
 
 ### CLI
 
