@@ -29,3 +29,12 @@ fn fibonacci_recursive(n: i32) -> u64 {
         _ => fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2),
     }
 }
+
+#[test]
+fn test_fibonacci_recursive() {
+    assert_eq!(0, fibonacci_recursive(0));
+    assert_eq!(1, fibonacci_recursive(1));
+    assert_eq!(1, fibonacci_recursive(2));
+    assert_eq!(2, fibonacci_recursive(3));
+    assert_eq!(3, fibonacci_recursive(4));
+}
