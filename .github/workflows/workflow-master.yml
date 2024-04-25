@@ -17,6 +17,9 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Build rust
+        uses: ./.github/actions/build-rust
+
       - name: Build latex
         uses: ./.github/actions/build-latex
 
@@ -24,9 +27,6 @@ jobs:
         run: |
           mv documentation/main.pdf Rust-Preuss-Schilter-Documentation.pdf
           mv presentation/main.pdf Rust-Preuss-Schilter-Presentation.pdf
-
-      - name: Build rust
-        uses: ./.github/actions/build-rust
 
       - name: Prepare release Artifacts
         run: |
