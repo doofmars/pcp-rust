@@ -8,4 +8,4 @@ runs:
       shell: bash
       run: |
         cd rust
-        cargo build --release
+        cargo build --all --release
