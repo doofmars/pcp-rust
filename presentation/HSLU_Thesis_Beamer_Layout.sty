@@ -103,15 +103,24 @@
 }
 
 \newcommand{\supervisor}[2]{
-    \logo{\includegraphics[height=0.6cm,keepaspectratio]{\teilogopng}}
     \institute{
-            {\includegraphics[height=1.2cm,keepaspectratio]{\teilogopng}}
-        \\[10pt]
-        \textsc{Department Information Technology}\\
-        {Lucerne University of Applied Sciences and Arts} \\
-        6343 Rotkreuz, Switzerland
-        \\[10pt]
-        \scalebox{0.9}{#1: #2}
+        % Mini page for logo placement
+        \begin{minipage}[t]{0.4\textwidth}
+            \vspace{0} % Required to vertically center the logo
+            \begin{flushright} % Float the image to the right
+                \includegraphics[height=0.6cm,keepaspectratio]{\teilogopng}
+            \end{flushright}
+        \end{minipage}
+        % Some space between image and text
+        \hspace{0.1\textwidth}
+        % Minipage for departement text
+        \begin{minipage}[t]{0.4\textwidth}
+            \textsc{Department Information Technology}\\
+            Lucerne University of Applied Sciences and Arts \\
+            6343 Rotkreuz, Switzerland \\
+            % Supervisor defined in main.tex
+            #1: #2
+        \end{minipage}
     }
 }
 
