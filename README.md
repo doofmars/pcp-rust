@@ -3,6 +3,23 @@ pcp-rust
 
 Rust project for PCP @ HSLU 2024 
 
+# Dates and times
+
+| Date       | When | Lecture         | Task                                  |
+|------------|------|-----------------|---------------------------------------|
+| 2024-04-25 | Thu  | Modern Java I   |                                       |
+| 2024-04-26 | Fri  | Modern Java II  | Team & Sprache fixiert                |
+| 2024-05-02 | Thu  | Modern Java III |                                       |
+| 2024-05-03 | Fri  | Modern Java VI  |                                       |
+| 2024-05-09 | Thu  |                 |                                       |
+| 2024-05-10 | Fri  |                 | Grober Themenfokus fixiert            |
+| 2024-05-16 | Thu  |                 | Demo / Coaching                       |
+| 2024-05-17 | Fri  |                 |                                       |
+| 2024-05-23 | Thu  |                 |                                       |
+| 2024-05-24 | Fri  |                 |                                       |
+| 2024-05-30 | Thu  |                 |                                       |
+| 2024-05-31 | Fri  |                 | Abgabe Bericht, Folien & Code (Ilias) |
+
 # Build
 
 ## Rust
@@ -19,7 +36,7 @@ Current Rust version is `1.77.2`
 - Attach main cargo toml file using the IDE by opening the `rust/Cargo.toml` and following the IDE suggestion (see the following figure)
 - Open any source file and use the IDE to execute
 
-![rust-rover-setup.png](documentation%2Fimages%2Frust-rover-setup.png)
+![rust-rover-setup.png](documentation/images/rust-rover-setup.png)
 
 ### CLI
 
@@ -48,7 +65,7 @@ Generally install [texlive](https://www.tug.org/texlive/quickinstall.html) (Focu
 - Create a new build configuration pointing to the `main.tex` file
 - Build the documentation (The created documentation is stored in the `out` folder)
 
-![latex-build-config.png](documentation%2Fimages%2Flatex-build-config.png)
+![latex-build-config.png](documentation/images/latex-build-config.png)
 
 ### CLI
 

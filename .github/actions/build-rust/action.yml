@@ -8,4 +8,9 @@ runs:
       shell: bash
       run: |
         cd rust
+        cargo test --all
+    - name: Build Rust Project
+      shell: bash
+      run: |
+        cd rust
         cargo build --all --release

@@ -17,20 +17,20 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Build rust
+        uses: ./.github/actions/build-rust
+
       - name: Build latex
         uses: ./.github/actions/build-latex
 
       - name: Move documents
         run: |
-          mv documentation/main.pdf main_document.pdf
-          mv presentation/main.pdf presentation_document.pdf
-
-      - name: Build rust
-        uses: ./.github/actions/build-rust
+          mv documentation/main.pdf Rust-Preuss-Schilter-Documentation.pdf
+          mv presentation/main.pdf Rust-Preuss-Schilter-Presentation.pdf
 
       - name: Prepare release Artifacts
         run: |
-          git archive -o artifacts.zip HEAD --add-file=main_document.pdf --add-file=presentation_document.pdf
+          git archive -o artifacts.zip HEAD --add-file=Rust-Preuss-Schilter-Documentation.pdf --add-file=Rust-Preuss-Schilter-Presentation.pdf
 
       - name: Unzip into release folder thanks to https://github.com/actions/upload-artifact/issues/39
         uses: montudor/action-zip@v1
@@ -40,5 +40,5 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: artifacts
+          name: Rust-Preuss-Schilter
           path: release-artifacts/
