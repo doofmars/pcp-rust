@@ -176,15 +176,11 @@
 
 %%%%
 
-
-    \section{Project overview}
-
-%%
-
     \begin{frame}{Project overview}
         \framesubtitle{This is a subtitle}
         \begin{itemize}
-            \item idea was to create a fridge for the HSLU
+            \item What is rust
+            \item Some detail on when it was created and other key facts here
         \end{itemize}
 
         \note{
@@ -194,13 +190,28 @@
 
 %%%%
 
+    % Example import from file
+    \begin{frame}{Fibonacci in rust}
+        Fibonacci example
 
-    \section{Project management}
+        \mylisting{22}{31}{Rust}{Rust}{Fibonacci recursive}{../rust/exercise-prolog-w3-1/src/main.rs}
 
-%%
+        \note{
+            Still notes
+        }
+    \end{frame}
 
-    \begin{frame}{Project management:}
-        Insert figures here
+    % Example direct code, note the [fragile] annotation
+    \begin{frame}[fragile]{Direct filter_map_reduce}
+        Map and reduce example
+
+        \begin{lstlisting}[language=Rust,escapechar=@,label={lst:map_reduce-test}]
+fn filter_map_reduce(list: [&str; 4]) -> String {
+    list.iter()
+        .filter(|e| e.starts_with("T"))
+        .map(|e| e.to_uppercase())
+        .collect::<Vec<String>>().join(" ")
+}\end{lstlisting}
 
         \note{
             Still notes
@@ -208,13 +219,6 @@
     \end{frame}
 
 %%%%
-
-
-    \section{Related work}
-
-%%
-
-    \subsection{Related work subject \#1}
 
     \begin{frame}{Related work}
         \framesubtitle{Related work subject \#1}
