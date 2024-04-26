@@ -3,6 +3,15 @@ pcp-rust
 
 Rust project for PCP @ HSLU 2024 
 
+# Main language features 
+
+- Borrowing & Move-Semantik
+- Traits: bounds & associated types
+- Typestate Programming
+- Tasks & Communication inkl. panic!() :-)
+- Spawn & Channels
+- Patterns & Matching
+
 # Dates and times
 
 | Date       | When | Lecture         | Task                                  |
