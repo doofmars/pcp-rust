@@ -58,7 +58,7 @@
     %\beamertemplatenavigationsymbolsempty
     \setbeamertemplate{headline}{}
     % Comment to completely cover next transparencies %%
-    \setbeamercovered{transparent=30}
+%    \setbeamercovered{transparent=30}
     % Table of contents only show section title
     \setcounter{tocdepth}{1}
     % Table of contents before each Section or Subsection
@@ -71,7 +71,6 @@
     % Add draft watermark
     \IfSubStr{#1}{draft}%
     {%
-        \usepackage{tikz}%
         \setbeamertemplate{background}{%
             \begin{tikzpicture}[remember picture, overlay]
                 \node[rotate=90, anchor=west, xshift=45pt, yshift=-10pt] at (current page.south west){\textcolor{gray!60}{\emph{Draft}}};%
