@@ -11,6 +11,7 @@ Rust project for PCP @ HSLU 2024
 - Tasks & Communication inkl. panic!() :-)
 - Spawn & Channels
 - Patterns & Matching
+- Cargo: Test & Build
 
 # Dates and times
 
