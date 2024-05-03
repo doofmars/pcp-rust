@@ -9,7 +9,7 @@ fn main() {
 
     println!("the value is: {} and {}", s1, s2);
 }\end{lstlisting}
-    \pause
+    \pause % Show output on second slide
     \begin{codeoutput}
 the value is: 1 and 1
 \end{codeoutput}
@@ -17,14 +17,20 @@ the value is: 1 and 1
 
 % Example direct code, note the [fragile] annotation
 \begin{frame}[fragile,t]{Reassign a String value}
-    \begin{lstlisting}[language=Rust,escapechar=@,label={lst:borrowing2}]
+    \begin{lstlisting}[
+        language=Rust,escapechar=@,label={lst:borrowing2},
+        linebackgroundcolor={%
+        \btLstHL<1>{}% No highlighting on first slide
+        \btLstHL<2>{3}% Highlight second slide
+        },
+    ]
 fn main() {
     let s1 = String::from("hello");
     let s2 = s1;
 
     println!("the value is: {} and {}", s1, s2);
 }\end{lstlisting}
-    \pause
+    \pause Show output on second slide
     \begin{codeoutput}[red]
 21 |     println!("the value is: {} and {}", s1, s2);
    |                                         ^^ value
