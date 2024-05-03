@@ -177,7 +177,7 @@
 \setbeamertemplate{headline}{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Thesis Info %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Presentation Info %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % title
 \title[PCP-Rust]{Programming Concepts \& Paradigms\\ Team-Projekt: Rust}
@@ -192,113 +192,20 @@
 \begin{document}
 
 % typeset front slides
-    \typesetFrontSlides
+\typesetFrontSlides
 
 %%%%%%%%%%%%%%%%
-% Start of Slides:
+% Slides each section in own file to reduce clutter and conflicts:
 
-%%%%
-
-    \begin{frame}{Project overview}
-        \framesubtitle{This is a subtitle}
-        \begin{itemize}
-            \item What is rust
-            \item Some detail on when it was created and other key facts here
-        \end{itemize}
-
-        \note{
-            Here you can add notes to the slides
-        }
-    \end{frame}
-
-%%%%
-
-    % Example import from file
-    \begin{frame}{Fibonacci in rust}
-        Fibonacci example
-
-        \mylisting{22}{31}{Rust}{Rust}{Fibonacci recursive}{../rust/exercise-prolog-w3-1/src/main.rs}
-
-        \note{
-            Still notes
-        }
-    \end{frame}
-
-    % Example direct code, note the [fragile] annotation
-    \begin{frame}[fragile]{Direct filter\_map\_reduce}
-        Map and reduce example
-
-        \begin{lstlisting}[language=Rust,escapechar=@,label={lst:map_reduce-test}]
-fn filter_map_reduce(list: [&str; 4]) -> String {
-    list.iter()
-        .filter(|e| e.starts_with("T"))
-        .map(|e| e.to_uppercase())
-        .collect::<Vec<String>>().join(" ")
-}\end{lstlisting}
-
-        \note{
-            Still notes
-        }
-    \end{frame}
-
-\include{topic-borrowing}
-
-%%%%
-
-    \begin{frame}{Related work}
-        \framesubtitle{Related work subject \#1}
-        \begin{columns}[T]
-
-            \column{0.5\textwidth}
-            column left
-
-            \column{0.5\textwidth}
-            column right
-        \end{columns}
-
-        \note{
-            Notes....
-        }
-
-    \end{frame}
-
-    \begin{frame}{Questions and answers}
-        \begin{center}
-        {\fontsize{40}{50}\selectfont Thank You! \\[10pt] Q \& A}
-        \end{center}
-    \end{frame}
-
-%% REFERENCES
-% allowframebreaks: creates multiple slides if it is to long for one
-    \begin{frame}[allowframebreaks]{References}
-        \begin{thebibliography}{}
-            \setbeamertemplate{bibliography item}[book]
-            \bibitem{DeepLearning}
-            Goodfellow, Ian, Yoshua Bengio, and Aaron Courville.
-            \newblock \emph{Deep Learning}.
-            \newblock MIT Press, 2016.
-
-            \setbeamertemplate{bibliography item}[article]
-            \bibitem{FaceNet}
-            Schroff, Florian, Dmitry Kalenichenko, and James Philbin.
-            \newblock \emph{FaceNet: A Unified Embedding for Face Recognition and Clustering}, 2015.
-            \newblock \url{https://arxiv.org/abs/1503.03832}
-
-            \setbeamertemplate{bibliography item}[online]
-            \bibitem{DCASE}
-            Dekkers, Lauwereins, Thoen et al.
-            \newblock \emph{DCASE Challenge 2018 Task 5}, 2018.
-            \newblock \url{http://dcase.community/challenge2018/task-monitoring-domestic-activities}
-        \end{thebibliography}
-    \end{frame}
-
-%% APPENDIX
-
-%%%% BACKUP
-    \begin{frame}{Backup Slides}
-        \framesubtitle{backup slides}
-        Backup!
-    \end{frame}
+\include{01-topic-intro}
+\include{02-topic-borrowing}
+\include{03-topic-traits}
+\include{04-topic-typestate}
+\include{05-topic-communication-tasks}
+\include{06-topic-patterns-matching}
+\include{07-topic-spawn}
+\include{08-topic-cargo}
+\include{09-topic-end}
 
 %%
 \end{document}

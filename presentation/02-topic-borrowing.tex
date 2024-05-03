@@ -1,3 +1,5 @@
+% Borrowing & Move-Semantik
+
 % Example direct code, note the [fragile] annotation
 \begin{frame}[fragile,t]{Reassign a integer value}
     \begin{lstlisting}[language=Rust,escapechar=@,label={lst:borrowing1}]
@@ -14,7 +16,7 @@ the value is: 1 and 1
 \end{frame}
 
 % Example direct code, note the [fragile] annotation
-\begin{frame}[fragile]{Reassign a String value}
+\begin{frame}[fragile,t]{Reassign a String value}
     \begin{lstlisting}[language=Rust,escapechar=@,label={lst:borrowing2}]
 fn main() {
     let s1 = String::from("hello");
