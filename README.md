@@ -3,6 +3,16 @@ pcp-rust
 
 Rust project for PCP @ HSLU 2024 
 
+# Main language features 
+
+- Borrowing & Move-Semantik
+- Traits: bounds & associated types
+- Typestate Programming
+- Tasks & Communication inkl. panic!() :-)
+- Spawn & Channels
+- Patterns & Matching
+- Cargo: Test & Build
+
 # Dates and times
 
 | Date       | When | Lecture         | Task                                  |
@@ -11,13 +21,13 @@ Rust project for PCP @ HSLU 2024
 | 2024-04-26 | Fri  | Modern Java II  | Team & Sprache fixiert                |
 | 2024-05-02 | Thu  | Modern Java III |                                       |
 | 2024-05-03 | Fri  | Modern Java VI  |                                       |
-| 2024-05-09 | Thu  |                 |                                       |
+| 2024-05-09 | Thu  | Public Holiday  |                                       |
 | 2024-05-10 | Fri  |                 | Grober Themenfokus fixiert            |
 | 2024-05-16 | Thu  |                 | Demo / Coaching                       |
 | 2024-05-17 | Fri  |                 |                                       |
 | 2024-05-23 | Thu  |                 |                                       |
 | 2024-05-24 | Fri  |                 |                                       |
-| 2024-05-30 | Thu  |                 |                                       |
+| 2024-05-30 | Thu  | Public Holiday  |                                       |
 | 2024-05-31 | Fri  |                 | Abgabe Bericht, Folien & Code (Ilias) |
 
 # Build

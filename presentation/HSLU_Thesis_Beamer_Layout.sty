@@ -58,7 +58,7 @@
     %\beamertemplatenavigationsymbolsempty
     \setbeamertemplate{headline}{}
     % Comment to completely cover next transparencies %%
-    \setbeamercovered{transparent=30}
+%    \setbeamercovered{transparent=30}
     % Table of contents only show section title
     \setcounter{tocdepth}{1}
     % Table of contents before each Section or Subsection
@@ -71,7 +71,6 @@
     % Add draft watermark
     \IfSubStr{#1}{draft}%
     {%
-        \usepackage{tikz}%
         \setbeamertemplate{background}{%
             \begin{tikzpicture}[remember picture, overlay]
                 \node[rotate=90, anchor=west, xshift=45pt, yshift=-10pt] at (current page.south west){\textcolor{gray!60}{\emph{Draft}}};%
@@ -102,18 +101,25 @@
     }
 }
 
-\newcommand{\supervisor}[4]{
-    \subtitle{\textsc{Bachelor Thesis}}
-    \logo{\includegraphics[height=0.6cm,keepaspectratio]{\teilogopng}}
+\newcommand{\supervisor}[2]{
     \institute{
-            {\includegraphics[height=1.2cm,keepaspectratio]{\teilogopng}}
-        \\[10pt]
-        \textsc{Department Information Technology}\\
-        {Lucerne University of Applied Sciences and Arts} \\
-        6343 Rotkreuz, Switzerland
-        \\[10pt]
-        \scalebox{0.9}{#1: #2} \\
-        \scalebox{0.9}{#3: #4}
+        % Mini page for logo placement
+        \begin{minipage}[t]{0.4\textwidth}
+            \vspace{0pt} % Required to vertically center the logo
+            \begin{flushright} % Float the image to the right
+                \includegraphics[height=0.6cm,keepaspectratio]{\teilogopng}
+            \end{flushright}
+        \end{minipage}
+        % Some space between image and text
+        \hspace{0.1\textwidth}
+        % Minipage for departement text
+        \begin{minipage}[t]{0.4\textwidth}
+            \textsc{Department Information Technology}\\
+            Lucerne University of Applied Sciences and Arts \\
+            6343 Rotkreuz, Switzerland \\
+            % Supervisor defined in main.tex
+            #1: #2
+        \end{minipage}
     }
 }
 
@@ -124,9 +130,6 @@
 \newcommand{\typesetFrontSlides}{
     \begin{frame}[plain]
         \titlepage
-    \end{frame}
-    \begin{frame}{Contents}
-        \tableofcontents
     \end{frame}
 }
 
@@ -140,6 +143,7 @@
     \ADD{1}{\numberofauthorsminusone}{\numberofauthors}%
     \DIVIDE{1}{\numberofauthors}{\columnwidthfactor}%
     \renewcommand\and{\column{\columnwidthfactor\textwidth}\centering}%
+        \includegraphics[height=3cm]{rust-logo-blk}
         \begin{columns}[t,onlytextwidth]%
             \column{\columnwidthfactor\textwidth}\centering%
             #2%

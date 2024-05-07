@@ -1,0 +1,146 @@
+%% Listings Paket ------------------------------------------------------
+%%% Doc: ftp://tug.ctan.org/pub/tex-archive/macros/latex/contrib/listings/listings-1.3.pdf
+\usepackage{listings, ../latex-lib/listings-rust/listings-rust}
+\usepackage{../latex-lib/lstlinebgrd/lstlinebgrd}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.5,0,0.33}
+\definecolor{codepurblue}{rgb}{0.16,0.0,1.0}
+\definecolor{backcolour}{rgb}{1,0.94,0.70}
+
+\lstset{
+    basicstyle =\ttfamily\color{black}\small, % Standardschrift
+    commentstyle=\color{codegreen},
+    keywordstyle=\bfseries\color{codepurple},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurblue},
+    numbers = left,              % Ort der Zeilennummern
+    tabsize=2,              % Groesse von Tabs
+    breakatwhitespace=false,              % An Leerzeichen umbrechen
+%showspaces=true,			  % Leerzeichen anzeigen
+    backgroundcolor=\color{backcolour},      % % Hintergrundfarbe der Listings
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+}
+
+% Code auschnitt importieren aus datei
+% example:
+%\mylisting{from}{to}{language}{file}{descr}{path}
+\newcommand{\mylisting}[6]{
+    \lstinputlisting[language=#3,
+        firstnumber=#1,
+        firstline=#1,
+        lastline=#2,
+        caption={#4, #5},
+        label={lst:implementation_listing_#4_#5}]
+    {#6}
+}
+
+% Code auschnitt importieren aus datei mit higlighting
+% Requires btLstHL and lstlinebgrd with some fixes
+
+% example:
+%\mylistingHiglight{from}{to}{language}{file}{descr}{highlight-config}{path}
+%\mylistingHiglight{22}{31}{Rust}{Rust}{Fibonacci recursive}{\btLstHL<1>{}\btLstHL<2>{27-29}}{../rust/exercise-prolog-w3-1/src/main.rs}
+\newcommand{\mylistingHiglight}[7]{
+    \lstinputlisting[language=#3,
+        firstnumber=#1,
+        firstline=#1,
+        lastline=#2,
+        caption={#4, #5},
+        linebackgroundcolor={#6},
+        label={lst:implementation_listing_#4_#5}]
+    {#7}
+}
+
+%% End Listings Paket ------------------------------------------------------
+
+%% Output console ----------------------------------------------------
+
+%example:
+%\begin{codeoutput}[red]
+%This is some text inside a display environment.
+%\end{codeoutput}
+
+\usepackage{verbatim}
+\definecolor{outputbackground}{rgb}{0.9, 0.9, 0.9}
+\newenvironment{codeoutput}[1][black]{%
+    \par\noindent
+    \adjustbox{margin=1ex,bgcolor=outputbackground,margin=0ex \medskipamount}%
+    \bgroup
+    \minipage{\dimexpr\linewidth-2ex\relax}
+    \verbatim
+    \ttfamily
+    \color{#1} % Set text color
+    }{%
+    \endverbatim
+    \endminipage
+    \egroup
+}
+
+%% End Output console ----------------------------------------------------
+
+%% Begin Listing higlight --------------------------------------------------
+% Source https://tex.stackexchange.com/questions/8851/how-can-i-highlight-some-lines-from-source-code
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% \btIfInRange{number}{range list}{TRUE}{FALSE}
+%
+% Test in int number <number> is element of a (comma separated) list of ranges
+% (such as: {1,3-5,7,10-12,14}) and processes <TRUE> or <FALSE> respectively
+\usepackage{pgf, pgffor}
+
+\makeatletter
+\newcount\bt@rangea
+\newcount\bt@rangeb
+
+\newcommand\btIfInRange[2]{%
+    \global\let\bt@inrange\@secondoftwo%
+    \edef\bt@rangelist{#2}%
+    \foreach \range in \bt@rangelist {%
+        \afterassignment\bt@getrangeb%
+        \bt@rangea=0\range\relax%
+        \pgfmathtruncatemacro\result{ ( #1 >= \bt@rangea) && (#1 <= \bt@rangeb) }%
+        \ifnum\result=1\relax%
+        \breakforeach%
+        \global\let\bt@inrange\@firstoftwo%
+        \fi%
+    }%
+    \bt@inrange%
+}
+\newcommand\bt@getrangeb{%
+    \@ifnextchar\relax%
+        {\bt@rangeb=\bt@rangea}%
+        {\@getrangeb}%
+}
+\def\@getrangeb-#1\relax{%
+    \ifx\relax#1\relax%
+    \bt@rangeb=100000%   \maxdimen is too large for pgfmath
+    \else%
+    \bt@rangeb=#1\relax%
+    \fi%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% \btLstHL<overlay spec>{range list}
+% Usage in lstlisting:
+% linebackgroundcolor={%
+%        \btLstHL<1>{}% No highliting here
+%        \btLstHL<2>{3}%
+%        }
+%
+% TODO BUG: \btLstHL commands can not yet be accumulated if more than one overlay spec match.
+%
+\newcommand<>{\btLstHL}[1]{%
+    \only#2{\btIfInRange{\value{lstnumber}}{#1}{\color{red!30}\def\lst@linebgrdcmd{\color@block}}{\def\lst@linebgrdcmd####1####2####3{}}}%
+}%
+\makeatother
+%% End Listing higlight ----------------------------------------------------

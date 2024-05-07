@@ -48,6 +48,8 @@
     urlcolor=hslu_pink,
 }
 
+\include{def-code}
+
 % Have subfigures and captions
 \usepackage{subcaption}
 \usepackage{caption}
@@ -64,7 +66,6 @@
 \pgfplotsset{compat=1.16}
 \pgfplotsset{every axis/.append style={tick label style={/pgf/number format/fixed},font=\scriptsize,ylabel near ticks,xlabel near ticks,grid=major}}
 
-\usepackage{amsmath}
 \DeclareMathOperator{\sigm}{sigm}
 \newcommand{\diff}{\mathop{}\!\mathrm{d}}
 
@@ -95,6 +96,9 @@
 %\setbeameroption{show notes}
 %\setbeameroption{show notes on second screen=right}
 
+%% Debugging
+%\usepackage{showframe}
+
 %%
 % load HSLU thesis layout
 \usepackage{HSLU_Thesis_Beamer_Layout}
@@ -105,122 +109,35 @@
 \setbeamertemplate{headline}{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Thesis Info %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Presentation Info %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % title
-\title[PCP-Rust]{Presentation\\ Rust}
+\title[PCP-Rust]{Programming Concepts \& Paradigms\\ Team-Projekt: Rust}
 % author
 \author[Schilter \& Preuß]{Roman Schilter \& Jan-Henrik Preuß}
 % supervisor
 \supervisor{Supervisor}{Marcel Baumann \& Ruedi Arnold}
 % date
-\presentationDate{\today}
+\presentationDate{May 31, 2024}
 %%%%%%%%%%%%%%%%
 
 \begin{document}
 
 % typeset front slides
-    \typesetFrontSlides
+\typesetFrontSlides
 
 %%%%%%%%%%%%%%%%
-% Start of Slides:
+% Slides each section in own file to reduce clutter and conflicts:
 
-%%%%
-
-
-    \section{Project overview}
-
-%%
-
-    \begin{frame}{Project overview}
-        \framesubtitle{This is a subtitle}
-        \begin{itemize}
-            \item idea was to create a fridge for the HSLU
-        \end{itemize}
-
-        \note{
-            Here you can add notes to the slides
-        }
-    \end{frame}
-
-%%%%
-
-
-    \section{Project management}
-
-%%
-
-    \begin{frame}{Project management:}
-        Insert figures here
-
-        \note{
-            Still notes
-        }
-    \end{frame}
-
-%%%%
-
-
-    \section{Related work}
-
-%%
-
-    \subsection{Related work subject \#1}
-
-    \begin{frame}{Related work}
-        \framesubtitle{Related work subject \#1}
-        \begin{columns}[T]
-
-            \column{0.5\textwidth}
-            column left
-
-            \column{0.5\textwidth}
-            column right
-        \end{columns}
-
-        \note{
-            Notes....
-        }
-
-    \end{frame}
-
-    \begin{frame}{Questions and answers}
-        \begin{center}
-        {\fontsize{40}{50}\selectfont Thank You! \\[10pt] Q \& A}
-        \end{center}
-    \end{frame}
-
-%% REFERENCES
-% allowframebreaks: creates multiple slides if it is to long for one
-    \begin{frame}[allowframebreaks]{References}
-        \begin{thebibliography}{}
-            \setbeamertemplate{bibliography item}[book]
-            \bibitem{DeepLearning}
-            Goodfellow, Ian, Yoshua Bengio, and Aaron Courville.
-            \newblock \emph{Deep Learning}.
-            \newblock MIT Press, 2016.
-
-            \setbeamertemplate{bibliography item}[article]
-            \bibitem{FaceNet}
-            Schroff, Florian, Dmitry Kalenichenko, and James Philbin.
-            \newblock \emph{FaceNet: A Unified Embedding for Face Recognition and Clustering}, 2015.
-            \newblock \url{https://arxiv.org/abs/1503.03832}
-
-            \setbeamertemplate{bibliography item}[online]
-            \bibitem{DCASE}
-            Dekkers, Lauwereins, Thoen et al.
-            \newblock \emph{DCASE Challenge 2018 Task 5}, 2018.
-            \newblock \url{http://dcase.community/challenge2018/task-monitoring-domestic-activities}
-        \end{thebibliography}
-    \end{frame}
-
-%% APPENDIX
-
-%%%% BACKUP
-    \begin{frame}{Backup Slides}
-        \framesubtitle{backup slides}
-        Backup!
-    \end{frame}
+\include{01-topic-intro}
+\include{02-topic-borrowing}
+\include{03-topic-traits}
+\include{04-topic-typestate}
+\include{05-topic-communication-tasks}
+\include{06-topic-patterns-matching}
+\include{07-topic-spawn}
+\include{08-topic-cargo}
+\include{09-topic-end}
 
 %%
 \end{document}
