@@ -1,0 +1,2 @@
+21 |     println!("the value is: {} 1and {}", s1, s2);
+   |                                         ^^ value borrowed here after move

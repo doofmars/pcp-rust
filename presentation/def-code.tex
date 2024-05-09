@@ -62,26 +62,21 @@
 %% End Listings Paket ------------------------------------------------------
 
 %% Output console ----------------------------------------------------
-
-%example:
-%\begin{codeoutput}[red]
-%This is some text inside a display environment.
-%\end{codeoutput}
-
-\usepackage{verbatim}
 \definecolor{outputbackground}{rgb}{0.9, 0.9, 0.9}
-\newenvironment{codeoutput}[1][black]{%
-    \par\noindent
-    \adjustbox{margin=1ex,bgcolor=outputbackground,margin=0ex \medskipamount}%
-    \bgroup
-    \minipage{\dimexpr\linewidth-2ex\relax}
-    \verbatim
-    \ttfamily
-    \color{#1} % Set text color
-    }{%
-    \endverbatim
-    \endminipage
-    \egroup
+
+% Examples:
+% % Good file
+%\codeoutput{code/02-borrowing1.txt}
+% % Error output file
+%\codeoutput[red]{code/02-borrowing2.txt}
+
+\newcommand{\codeoutput}[2][black]{%
+    \lstinputlisting[
+        basicstyle =\ttfamily\color{#1}\small, % Standardschrift
+        backgroundcolor=\color{outputbackground},
+        numbers = none,
+        label={lst:code_#2}]
+    {#2}
 }
 
 %% End Output console ----------------------------------------------------

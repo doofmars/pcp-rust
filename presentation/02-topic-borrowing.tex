@@ -10,9 +10,7 @@ fn main() {
     println!("the value is: {} and {}", s1, s2);
 }\end{lstlisting}
     \pause % Show output on second slide
-    \begin{codeoutput}
-the value is: 1 and 1
-\end{codeoutput}
+    \codeoutput{code/02-borrowing1.txt}
 \end{frame}
 
 % Example direct code, note the [fragile] annotation
@@ -30,9 +28,6 @@ fn main() {
 
     println!("the value is: {} and {}", s1, s2);
 }\end{lstlisting}
-    \pause Show output on second slide
-    \begin{codeoutput}[red]
-21 |     println!("the value is: {} and {}", s1, s2);
-   |                                         ^^ value
-borrowed here after move\end{codeoutput}
+    \pause
+    \codeoutput[red]{code/02-borrowing2.txt}
 \end{frame}
