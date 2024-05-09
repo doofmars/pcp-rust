@@ -14,6 +14,7 @@ members = [
     "exercise-prolog-w3-1",
     "exercise-clojure-w5-2",
     "example-reqwest",
+    "example-borrow",
     "example-filter-map-reduce",
     "example-typestate-programming",
     "example-traits",

@@ -1,1 +1,1 @@
-the value is: 1 and 1
+Die Werte sind: 1 und 1
