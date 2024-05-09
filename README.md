@@ -5,13 +5,13 @@ Rust project for PCP @ HSLU 2024
 
 # Main language features 
 
-- Borrowing & Move-Semantik
-- Traits: bounds & associated types
-- Typestate Programming
-- Tasks & Communication inkl. panic!() :-)
-- Spawn & Channels
-- Patterns & Matching
-- Cargo: Test & Build
+- Borrowing & Move-Semantik (Jan)
+- Traits: bounds & associated types (Roman)
+- Typestate Programming (Roman)
+- Tasks & Communication inkl. panic!() :-) (Jan)
+- Spawn & Channels (Roman)
+- Patterns & Matching (Roman)
+- Cargo: Test & Build (Jan)
 
 # Dates and times
 
