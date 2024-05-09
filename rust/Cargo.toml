@@ -12,5 +12,6 @@ members = [
     "exercise-prolog-w3-1",
     "exercise-clojure-w5-2",
     "example-filter-map-reduce",
-    "example-traits"
+    "example-traits",
+    "example-trait-bounds"
 ]
