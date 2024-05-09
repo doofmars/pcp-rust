@@ -12,6 +12,7 @@ members = [
     "hello-world",
     "exercise-prolog-w3-1",
     "exercise-clojure-w5-2",
+    "example-borrow",
     "example-filter-map-reduce",
     "example-typestate-programming",
     "example-traits",

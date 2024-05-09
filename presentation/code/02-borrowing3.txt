@@ -1,0 +1,2 @@
+7 | fn calculate_length(s: String) -> usize {
+  |    ----------------    ^^^^^^ this parameter takes ownership of the value
