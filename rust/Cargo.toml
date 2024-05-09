@@ -13,5 +13,6 @@ members = [
     "exercise-clojure-w5-2",
     "example-filter-map-reduce",
     "example-traits",
-    "example-trait-bounds"
+    "example-trait-bounds",
+    "example-traits-associated-types"
 ]

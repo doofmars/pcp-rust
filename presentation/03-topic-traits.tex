@@ -36,17 +36,35 @@ println!("Output: {}", Bar::get_val());
 \begin{frame}[fragile,t]{Trait Bounds 1}
     \begin{lstlisting}[language=Rust,escapechar=@,label={lst:traitbounds1}]
 impl<T: Bar> Foo for T {
-} \end{lstlisting}
+}\end{lstlisting}
 
     \pause
     \begin{lstlisting}[language=Rust,escapechar=@,label={lst:traitbounds2}]
 impl<T: Bar1 + Bar2> Foo for T {
-} \end{lstlisting}
+}\end{lstlisting}
 
     \pause
     \begin{lstlisting}[language=Rust,escapechar=@,label={lst:traitbounds3}]
 impl<T> Foo for T {
-} \end{lstlisting}
+}\end{lstlisting}
 
     \pause DEMO
+\end{frame}
+
+\begin{frame}[fragile,t]{Trait Generics}
+    Trait definition:
+    \mylistingHiglight{2}{4}{Rust}{Rust}{Trait mit Generics}{}{../rust/example-traits-associated-types/src/main.rs}
+
+    \pause
+    Trait implementation:
+    \mylistingHiglight{6}{10}{Rust}{Rust}{Trait mit Generics}{}{../rust/example-traits-associated-types/src/main.rs}
+\end{frame}
+
+\begin{frame}[fragile,t]{Trait Assiozierten Typen}
+    Trait definition:
+    \mylistingHiglight{13}{17}{Rust}{Rust}{Trait mit Assiozierten Typen}{}{../rust/example-traits-associated-types/src/main.rs}
+
+    \pause
+    Trait implementation:
+    \mylistingHiglight{19}{25}{Rust}{Rust}{Trait mit Assiozierten Typen}{}{../rust/example-traits-associated-types/src/main.rs}
 \end{frame}
