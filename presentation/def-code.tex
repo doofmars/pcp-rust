@@ -31,32 +31,32 @@
 
 % Code auschnitt importieren aus datei
 % example:
-%\mylisting{from}{to}{language}{file}{descr}{path}
-\newcommand{\mylisting}[6]{
+%\mylisting{from}{to}{language}{label}{path}
+%\mylisting{2}{2}{Rust}{hello-world}{../rust/src/main.rs}
+\newcommand{\mylisting}[5]{
     \lstinputlisting[language=#3,
         firstnumber=#1,
         firstline=#1,
         lastline=#2,
-        caption={#4, #5},
-        label={lst:implementation_listing_#4_#5}]
-    {#6}
+        label={lst:implementation_listing_#4}]
+    {#5}
 }
 
 % Code auschnitt importieren aus datei mit higlighting
 % Requires btLstHL and lstlinebgrd with some fixes
 
 % example:
-%\mylistingHiglight{from}{to}{language}{file}{descr}{highlight-config}{path}
-%\mylistingHiglight{22}{31}{Rust}{Rust}{Fibonacci recursive}{\btLstHL<1>{}\btLstHL<2>{27-29}}{../rust/exercise-prolog-w3-1/src/main.rs}
-\newcommand{\mylistingHiglight}[7]{
+%\mylistingHiglight{from}{to}{language}{label}{highlight-config}{path}
+% % First frame no highlight and higlight lines 27-29 on second frame
+%\mylistingHiglight{22}{31}{Rust}{fibonacci_recursive}{\btLstHL<1>{}\btLstHL<2>{27-29}}{../rust/exercise-prolog-w3-1/src/main.rs}
+\newcommand{\mylistingHiglight}[6]{
     \lstinputlisting[language=#3,
         firstnumber=#1,
         firstline=#1,
         lastline=#2,
-        caption={#4, #5},
-        linebackgroundcolor={#6},
-        label={lst:implementation_listing_#4_#5}]
-    {#7}
+        linebackgroundcolor={#5},
+        label={lst:implementation_listing_#4}]
+    {#6}
 }
 
 %% End Listings Paket ------------------------------------------------------
