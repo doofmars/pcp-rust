@@ -3,6 +3,7 @@ trait TraitA<T> {
     fn trim_a(s: T) -> T;
 }
 
+// Implementation of the generic Trait on Foo with string
 impl TraitA<String> for Foo {
     fn trim_a(s: String) -> String {
        s.trim().to_string()
@@ -16,6 +17,7 @@ trait TraitB {
     fn trim_b(s: Self::T) -> Self::T;
 }
 
+// Implementation of TraitB with the associated type set to String
 impl TraitB for Foo {
     type T = String;
 
