@@ -16,17 +16,18 @@ trait Trait3 {
     }
 }
 
-// implement Trait 1 for all types
+// implement Trait1 for all types
 impl<T> Trait1 for T {}
 
-// implement Trait 3 for all that implement 1 and 2
+// implement Trait3 for all that implement 1 and 2
 impl<T: Trait1 + Trait2> Trait3 for T {}
 
-// implement Trait 2 for the example struct
+// implement Trait2 for the example struct
 impl Trait2 for ExampleStruct {}
 
-struct ExampleStruct {}
+struct ExampleStruct;
 
+// the parameter subj has to have all three Traits implemented
 fn print_all(subj: &(impl Trait1 + Trait2 + Trait3)) {
     println!("Trait 1: {}", subj.fn1());
     println!("Trait 2: {}", subj.fn2());
@@ -34,9 +35,14 @@ fn print_all(subj: &(impl Trait1 + Trait2 + Trait3)) {
 }
 
 fn main() {
+    // the ExampleStruct has all three Traits implemented and can be passed to print_all
+    // => Trait1 is implemented on all types
+    // => Trait2 is implemented directly on the ExampleStruct
+    // => Trait3 is implemented on all that implement Trait1 and 2, which the ExampleStruct does
     let example_struct = ExampleStruct {};
     print_all(&example_struct);
 
+    // Trait1 is implemented on all types, including strings
     println!("Call on string: {}", "".fn1());
 }
 
