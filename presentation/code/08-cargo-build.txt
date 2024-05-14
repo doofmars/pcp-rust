@@ -1,0 +1,3 @@
+cargo build
+   Compiling hello-world v0.1.0 (/rust/hello-world)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.68s

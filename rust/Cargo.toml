@@ -9,6 +9,7 @@ edition = "2021"
 
 [workspace]
 members = [
+    "hello-world",
     "exercise-prolog-w3-1",
     "exercise-clojure-w5-2",
     "example-filter-map-reduce",
