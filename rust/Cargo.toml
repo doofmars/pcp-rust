@@ -8,4 +8,11 @@ edition = "2021"
 [dependencies]
 
 [workspace]
-members = ["exercise-prolog-w3-1", "exercise-clojure-w5-2", "example-filter-map-reduce"]
+members = [
+    "exercise-prolog-w3-1",
+    "exercise-clojure-w5-2",
+    "example-filter-map-reduce",
+    "example-traits",
+    "example-trait-bounds",
+    "example-traits-associated-types"
+]
