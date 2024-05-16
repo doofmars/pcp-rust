@@ -14,5 +14,6 @@ members = [
     "example-filter-map-reduce",
     "example-traits",
     "example-trait-bounds",
-    "example-traits-associated-types"
+    "example-traits-associated-types",
+    "example-channels"
 ]
