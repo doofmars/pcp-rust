@@ -76,3 +76,52 @@
     \onslide<3>{third}
     \onslide<4>{fourth}
 \end{frame}
+
+\begin{frame}
+    \begin{center}
+        \Huge Bonus slides
+    \end{center}
+\end{frame}
+
+\begin{frame}[t]{Cargo create a new project}
+    \codeoutput{code/08-cargo-new.txt}
+    \only<2>{
+        Wir erhalten die folgende Verzeichniss struktur:
+        \dirtree{%
+            .1 hello-world.
+            .2 src.
+            .3 main.rs.
+            .2 Cargo.toml.
+        }
+    }
+    \only<3>{
+        Inhalt der main.rs:
+        \lstinputlisting[language=Rust,
+            label={lst:implementation_listing_hello-world-rs}]
+        {../rust/hello-world/src/main.rs}
+    }
+    \only<4>{
+        Inhalt der Cargo.toml:
+        \lstinputlisting[language=Rust,
+            label={lst:implementation_listing_hello-world-toml}]
+        {../rust/hello-world/Cargo.toml}
+    }
+\end{frame}
+
+\begin{frame}[t]{Cargo build and run}
+    \codeoutput{code/08-cargo-build.txt}
+    \only<1>{
+        Starten der Anwendung durch ausführen der Binärdatei
+        \codeoutput{code/08-cargo-run1.txt}
+    }
+    \only<2>{
+        Starten mit cargo run
+        \codeoutput{code/08-cargo-run2.txt}
+    }
+\end{frame}
+
+\begin{frame}[t]{Cargo CI/CD}
+    \framesubtitle{Automatisierung mit GitHub Actions}
+    Wie auch in anderen programmiersprachen kann das Testen und Bauen mittels cargo in einer CI/CD Pipeline erfolgen.
+    \mylistingHiglight{6}{16}{toml}{cargo-in-github}{\btLstHL<1>{}\btLstHL<2>{11,16}}{../.github/actions/build-rust/action.yml}
+\end{frame}
