@@ -30,7 +30,8 @@ fn main() {
      */
 
     /*
-    // you also can't start with a Moving state
+    // you also can't start with a Moving state, because the fields are private
+    // also there is no associated function like "new" to create an instance
 
     let invalid_state = Moving {
         initial_distance: 10,
