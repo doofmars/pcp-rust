@@ -1,1 +1,70 @@
 % Traits: bounds & associated types
+
+\begin{frame}[fragile,t]{Traits 1}
+    Trait definition:
+    \begin{lstlisting}[language=Rust,escapechar=@,label={lst:traits1}]
+trait Foo {
+    fn get_val() -> String {
+        String::from("foo")
+    }
+}\end{lstlisting}
+
+    \pause
+    Trait implementation:
+    \begin{lstlisting}[language=Rust,escapechar=@,label={lst:traits2}]
+struct Bar {}
+
+impl Foo for Bar {
+    fn get_val() -> String {
+        String::from("bar")
+    }
+}\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile,t]{Traits 2}
+    \begin{lstlisting}[language=Rust,escapechar=@,label={lst:traits3}]
+println!("Output: {}", Bar::get_val());
+\end{lstlisting}
+
+    \pause
+    \codeoutput{code/03-traits1.txt}
+\end{frame}
+
+\begin{frame}[fragile,t]{Trait Bounds}
+    Auf allen die Bar implementieren:
+    \begin{lstlisting}[language=Rust,escapechar=@,label={lst:traitbounds1}]
+impl<T: Bar> Foo for T {
+}\end{lstlisting}
+
+    \pause Auf allen die Bar1 und Bar2 implementieren:
+    \begin{lstlisting}[language=Rust,escapechar=@,label={lst:traitbounds2}]
+impl<T: Bar1 + Bar2> Foo for T {
+}\end{lstlisting}
+
+    \pause Auf allen:
+    \begin{lstlisting}[language=Rust,escapechar=@,label={lst:traitbounds3}]
+impl<T> Foo for T {
+}\end{lstlisting}
+
+    \pause
+    $\longrightarrow$ DEMO
+\end{frame}
+
+\begin{frame}[fragile,t]{Trait Generics}
+    Trait definition:
+    \mylisting{2}{4}{Rust}{Trait mit Generics}{../rust/example-traits-associated-types/src/main.rs}
+
+    \pause
+    Trait implementation:
+    \mylisting{7}{11}{Rust}{Trait mit Generics}{../rust/example-traits-associated-types/src/main.rs}
+\end{frame}
+
+\begin{frame}[fragile,t]{Trait Assiozierten Typen}
+    Trait definition:
+    \mylisting{14}{18}{Rust}{Trait mit Assiozierten Typen}{../rust/example-traits-associated-types/src/main.rs}
+
+    \pause
+    Trait implementation:
+    \mylisting{21}{27}{Rust}{Trait mit Assiozierten Typen}{../rust/example-traits-associated-types/src/main.rs}
+\end{frame}
