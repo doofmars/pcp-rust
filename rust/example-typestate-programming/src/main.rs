@@ -25,7 +25,7 @@ fn main() {
     // you can only start at 0, because the distance is private
 
     let invalid_state = Stopped {
-        distance: 10
+        distance: 10,
     };
      */
 
@@ -34,7 +34,7 @@ fn main() {
 
     let invalid_state = Moving {
         initial_distance: 10,
-        velocity: 5
+        velocity: 5,
     };
      */
 }
