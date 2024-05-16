@@ -1,17 +1,19 @@
 pcp-rust
 ========
 
-Rust project for PCP @ HSLU 2024 
+Rust project for PCP @ HSLU 2024
 
-# Main language features 
+# Topics and main language features covered:
 
+- Intro, history von rust. Ist Rust nur eine 3D-Printed gun?
 - Borrowing & Move-Semantik (Jan)
 - Traits: bounds & associated types (Roman)
 - Typestate Programming (Roman)
-- Tasks & Communication inkl. panic!() :-) (Jan)
-- Spawn & Channels (Roman)
-- Patterns & Matching (Roman)
+- Tasks & Communication inkl. panic!() :-) Spawn & Channels (Roman)
+- Patterns & Matching (Jan)
 - Cargo: Test & Build (Jan)
+- Technisches Team-Fazit: Vorteile und Nachteile von Rust (Rust im Linux Kernel)
+- Persönliches Fazit
 
 # Dates and times
 
@@ -25,10 +27,10 @@ Rust project for PCP @ HSLU 2024
 | 2024-05-10 | Fri  |                 | Grober Themenfokus fixiert            |
 | 2024-05-16 | Thu  |                 | Demo / Coaching                       |
 | 2024-05-17 | Fri  |                 |                                       |
-| 2024-05-23 | Thu  |                 |                                       |
+| 2024-05-23 | Thu  |                 | Finalisierung themen und beispiele    |
 | 2024-05-24 | Fri  |                 |                                       |
-| 2024-05-30 | Thu  | Public Holiday  |                                       |
-| 2024-05-31 | Fri  |                 | Abgabe Bericht, Folien & Code (Ilias) |
+| 2024-05-30 | Thu  | Public Holiday  | Abgabe Bericht, Folien & Code (Ilias) |
+| 2024-05-31 | Fri  |                 | Präsentationen & Code-Demo            |
 
 # Build
 
