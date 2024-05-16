@@ -1,0 +1,2 @@
+$ ./target/debug/hello-world
+Hello, world!
