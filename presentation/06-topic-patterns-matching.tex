@@ -16,7 +16,7 @@
     Map and reduce example
 
     \begin{lstlisting}[language=Rust,escapechar=@,label={lst:map_reduce-test}]
-fn filter_map_reduce(list: [&str; 4]) -> String {
+fn filter_map_reduce(list: &[&str]) -> String {
     list.iter()
         .filter(|e| e.starts_with("T"))
         .map(|e| e.to_uppercase())
