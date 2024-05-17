@@ -1,0 +1,21 @@
+% Example import from file
+\begin{frame}[fragile]{Rust sprach eigenschaften}
+    Rust hat keinen ternary operator.
+    \pause
+    \begin{lstlisting}[language=Rust,escapechar=@,label={lst:ternary}]
+let coin_toss: bool = random();
+let result = if coin_toss { "Head" } else { "Tail" };
+    \end{lstlisting}
+    Das standard \texttt{if} genügt \\
+    \pause
+    \vspace{0.5cm}
+    Rust hat keine varargs
+    \pause
+    \begin{lstlisting}[language=Rust,escapechar=@,label={lst:makros}]
+let geht = 42;
+let makros: HashMap<String, String> = HashMap::new();
+println!("Dieser {} {} {}, {:#?}", "aufruf", geht, "mit", makros);
+    \end{lstlisting}
+    \pause
+    Rust hat Makros!
+\end{frame}
