@@ -15,5 +15,6 @@ members = [
     "example-traits",
     "example-trait-bounds",
     "example-traits-associated-types",
-    "example-channels"
+    "example-channels",
+    "example-threads"
 ]

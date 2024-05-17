@@ -32,7 +32,7 @@ fn channel_data_ownership() {
     // create channel for Data
     let (sender, receiver) = channel::<Data>();
 
-    // the move before the function makes sure the strings within are owned by the thread
+    // the move keyword allows the thread to take ownership of "sender"
     let thread1 = thread::spawn(move || {
         // this is owned by thread 1 here
         let data = Data {
