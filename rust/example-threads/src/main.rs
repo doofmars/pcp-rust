@@ -1,6 +1,4 @@
 use std::{panic, thread};
-use std::fmt::Error;
-use std::thread::JoinHandle;
 use std::time::Duration;
 
 fn example_thread() {
@@ -47,7 +45,7 @@ fn example_with_result() {
 fn main() {
     println!("Thread example:");
     example_thread();
-    println!("\nExample with result:");
 
+    println!("\nExample with result:");
     example_with_result();
 }

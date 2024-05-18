@@ -39,18 +39,17 @@ fn channel_data_ownership() {
             field: String::from("my data"),
         };
 
-        // data is moved to thread 2
+        // "data" is moved to thread 2
         sender.send(data)
             .expect("Send failed");
 
-        // The following line will not compile because data was moved
+        // The following line will not compile because "data" was moved
         // println!("Thread 1 has: {}", data.field)
     });
 
-    // receive the data and add output it
     let thread2 = thread::spawn(move || {
-        // receive the data and add output it
-        let data= receiver.recv()
+        // receive "data" and output it
+        let data = receiver.recv()
             .expect("Receive failed");
 
         println!("Thread 2 has {}", data.field)
