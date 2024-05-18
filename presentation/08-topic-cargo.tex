@@ -1,60 +1,13 @@
 % Cargo: Test & Build
 \begin{frame}{Cargo}
     \framesubtitle{Build system and package manager for Rust}
-    Common cargo commands:
+    Cargo kommt mit einigen befehlen, die auch von anderen Build-Tools kennt.
+    \codeoutput{code/08-cargo.txt}
     \pause
-    \begin{itemize}
-        \item \texttt{cargo new <project-name>}
-        \pause
-        \item \texttt{cargo build}
-        \pause
-        \item \texttt{cargo run}
-        \pause
-        \item \texttt{cargo test}
-        \pause
-        \item \texttt{cargo doc -{}-open}
-        \pause
-        \item \texttt{cargo [clippy|check|clean|fmt]}
-    \end{itemize}
+    Pakete: \url{https://crates.io} Doku: \url{https://docs.rs}\\
+    Dependency hinzufügen:
+    \codeoutput{code/08-cargo-add.txt}
+    \pause
+    Konfiguration über \texttt{Cargo.toml} Datei, versionen werden in \texttt{Cargo.lock} festgelegt.
 \end{frame}
 
-\begin{frame}[t]{Cargo create a new project}
-    \codeoutput{code/08-cargo-new.txt}
-    \only<2>{
-        \dirtree{%
-            .1 hello-world.
-            .2 src.
-            .3 main.rs.
-            .2 Cargo.toml.
-        }
-    }
-    \only<3>{
-        hello-world/src/main.rs
-        \lstinputlisting[language=Rust,
-            label={lst:implementation_listing_hello-world-rs}]
-        {../rust/hello-world/src/main.rs}
-    }
-    \only<4>{
-        hello-world/Cargo.toml
-        \lstinputlisting[language=Rust,
-            label={lst:implementation_listing_hello-world-toml}]
-        {../rust/hello-world/Cargo.toml}
-    }
-\end{frame}
-
-\begin{frame}[t]{Cargo build and run}
-    \codeoutput{code/08-cargo-build.txt}
-    \only<2>{
-        Starten der Anwendung
-        \codeoutput{code/08-cargo-run1.txt}
-    }
-    \only<3>{
-        Starten mit cargo run
-        \codeoutput{code/08-cargo-run2.txt}
-    }
-\end{frame}
-
-\begin{frame}[t]{Cargo CI/CD}
-    Automatisierung mit GitHub Actions
-    \mylistingHiglight{6}{16}{toml}{cargo-in-github}{\btLstHL<1>{}\btLstHL<2>{11,16}}{../.github/actions/build-rust/action.yml}
-\end{frame}

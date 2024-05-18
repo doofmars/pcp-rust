@@ -1,0 +1,87 @@
+% Store the current frame an use this later as the final page number.
+\newcounter{finalframe}
+\setcounter{finalframe}{\value{framenumber}}
+
+\begin{frame}
+    \begin{center}
+        \Huge Bonus slides
+    \end{center}
+\end{frame}
+
+\begin{frame}[t]{Cargo create a new project}
+    \codeoutput{code/08-cargo-new.txt}
+    \only<2>{
+        Wir erhalten die folgende Verzeichniss struktur:
+        \dirtree{%
+            .1 hello-world.
+            .2 src.
+            .3 main.rs.
+            .2 Cargo.toml.
+        }
+    }
+    \only<3>{
+        Inhalt der main.rs:
+        \lstinputlisting[language=Rust,
+            label={lst:implementation_listing_hello-world-rs}]
+        {../rust/hello-world/src/main.rs}
+    }
+    \only<4>{
+        Inhalt der Cargo.toml:
+        \lstinputlisting[language=Rust,
+            label={lst:implementation_listing_hello-world-toml}]
+        {../rust/hello-world/Cargo.toml}
+    }
+\end{frame}
+
+\begin{frame}[t]{Cargo build and run}
+    \codeoutput{code/08-cargo-build.txt}
+    \only<1>{
+        Starten der Anwendung durch ausführen der Binärdatei
+        \codeoutput{code/08-cargo-run1.txt}
+    }
+    \only<2>{
+        Starten mit cargo run
+        \codeoutput{code/08-cargo-run2.txt}
+    }
+\end{frame}
+
+\begin{frame}[t]{Cargo CI/CD}
+    \framesubtitle{Automatisierung mit GitHub Actions}
+    Wie auch in anderen programmiersprachen kann das Testen und Bauen mittels cargo in einer CI/CD Pipeline erfolgen.
+    \mylistingHiglight{6}{16}{toml}{cargo-in-github}{\btLstHL<1>{}\btLstHL<2>{11,16}}{../.github/actions/build-rust/action.yml}
+\end{frame}
+
+%\begin{frame}[fragile]{Example slide with animations}
+%    \framesubtitle{How to work with animations in latex?}
+%    \begin{lstlisting}[
+%        linebackgroundcolor={%
+%        \btLstHL<1>{1-3}%
+%        \btLstHL<2>{6,9}%
+%        \btLstHL<3>{7}%
+%        \btLstHL<4>{8}%
+%        },
+%        gobble=4,
+%        label={lst:test}]
+%      /**
+%      * Prints Hello World.
+%      **/
+%      #include <stdio.h>
+%
+%      int main(void) {
+%         printf("Hello World!");
+%         return 0;
+%      }
+%    \end{lstlisting}
+%
+%    \only<1>{Shows on first page}
+%    \only<1-2>{first and second page}
+%    \only<3->{from-3}
+%    \only<2>{second}
+%    \onslide<3>{third}
+%    \onslide<4>{fourth}
+%    \pause
+%    Then this comes on the last slide
+%\end{frame}
+
+% fool beamer on the total number of slides
+\setcounter{framenumber}{\value{finalframe}}
