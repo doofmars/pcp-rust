@@ -34,7 +34,7 @@ fn channel_data_ownership() {
 
     // the move keyword allows the thread to take ownership of "sender"
     let thread1 = thread::spawn(move || {
-        // this is owned by thread 1 here
+        // "data" is owned by thread 1 here
         let data = Data {
             field: String::from("my data"),
         };
@@ -43,12 +43,13 @@ fn channel_data_ownership() {
         sender.send(data)
             .expect("Send failed");
 
-        // this will throw an error because data was moved
+        // The following line will not compile because data was moved
         // println!("Thread 1 has: {}", data.field)
     });
 
     // receive the data and add output it
     let thread2 = thread::spawn(move || {
+        // receive the data and add output it
         let data= receiver.recv()
             .expect("Receive failed");
 

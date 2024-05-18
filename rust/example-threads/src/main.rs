@@ -8,12 +8,12 @@ fn example_thread() {
 
     // start a thread
     let thread = thread::spawn(|| {
-        println!("Start other thread");
+        println!("  Start other thread");
 
         // sleep for 10 milliseconds
         thread::sleep(Duration::from_millis(10));
 
-        println!("End other thread");
+        println!("  End other thread");
     });
 
     println!("Other thread started");
@@ -35,7 +35,7 @@ fn example_with_result() {
         panic!("Fail")
     });
 
-    // wait for successful_thread an print the result
+    // wait for successful_thread and print the result
     println!("Successful result: {}", successful_thread.join().expect("successful thread panicked"));
 
     // check if the failed_thread has panicked
@@ -45,7 +45,9 @@ fn example_with_result() {
 }
 
 fn main() {
+    println!("Thread example:");
     example_thread();
+    println!("\nExample with result:");
 
     example_with_result();
 }
