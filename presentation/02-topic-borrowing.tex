@@ -11,9 +11,11 @@ fn main() {
 }\end{lstlisting}
     \pause
     \codeoutput{code/02-borrowing1.txt}
-    Einfache werte können direkt einer neuen variable zugewiesen werden.
-    Wie dies auch in Java möglich ist.
-    Beim Verlassen der \texttt{main()} wird \texttt{var1} und \texttt{var2} aufgeräumt.
+    \note{
+        Einfache werte können direkt einer neuen variable zugewiesen werden.
+        Wie dies auch in Java möglich ist.
+        Beim Verlassen der \texttt{main()} wird \texttt{var1} und \texttt{var2} aufgeräumt.
+    }
 \end{frame}
 
 % Example direct code, note the [fragile] annotation
@@ -22,7 +24,7 @@ fn main() {
         language=Rust,escapechar=@,label={lst:borrowing2},
         linebackgroundcolor={%
         \btLstHL<1>{}% No highlighting on first slide
-        \btLstHL<2>{3}% Highlight second slide
+        \btLstHL<2>{5}% Highlight second slide
         },
     ]
 fn main() {
@@ -33,10 +35,12 @@ fn main() {
 }\end{lstlisting}
     \pause
     \codeoutput[red]{code/02-borrowing2.txt}
-    Obwohl ähnlich zum beispiel zuvor, sieht Rust \texttt{var1} nach zeile 3 nicht mehr als gültig an.
-    Wie bei Java ist ein String in Rust ein komplexer Datentyp.
-    Wie zuvor werden die Werte, wenn die main verlassen wird aufgeräumt.
-    Wenn die Zuordnung so funktionieren würde, müsste der String zweimal bereinigt werden.
+    \note{
+        Obwohl ähnlich zum beispiel zuvor, sieht Rust \texttt{var1} nach zeile 3 nicht mehr als gültig an. \\
+        Wie bei Java ist ein String in Rust ein komplexer Datentyp. \\
+        Wie zuvor werden die Werte, wenn die main verlassen wird aufgeräumt. \\
+        Wenn die Zuordnung so funktionieren würde, müsste der String zweimal bereinigt werden.
+    }
 \end{frame}
 
 % Example direct code, note the [fragile] annotation
@@ -79,9 +83,12 @@ fn calculate_length(s: &String) -> usize {
     s.len()
 }\end{lstlisting}
     \only<1>{
-        Übergabe einer Referenz (\texttt{\&}) löst das Problem.
-        Allerdings wird hier garantiert, dass die Referenz bis zum Ende der Laufzeit valide ist.
-        Anders als dies bei Pointern in C der Fall ist.
+        Übergabe einer Referenz (\texttt{\&})
+        \note{
+            Übergabe einer Referenz (\texttt{\&}) löst das Problem. \\
+            Allerdings wird hier garantiert, dass die Referenz bis zum Ende der Laufzeit valide ist. \\
+            Anders als dies bei Pointern in C der Fall ist.
+        }
     }
     \pause
     \codeoutput{code/02-borrowing4.txt}
