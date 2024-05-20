@@ -1,81 +1,83 @@
-\documentclass[10.5pt]{article}
-% compile with pdflatex deckball_bachelorarbeit.tex
-\usepackage{amssymb}
-\usepackage{color}
-\usepackage{lipsum}
-\usepackage{graphicx}
-\usepackage[a4paper,bindingoffset=0.2in,%
-    left=3.35cm,right=2.12cm,top=3.75cm,bottom=2.88cm,%
-    footskip=.25in]{geometry}
-\usepackage[T1]{fontenc}
+\documentclass[letterpaper,12pt]{article}
+\usepackage{tabularx} % extra features for tabular environment
+\usepackage{amsmath}  % improve math presentation
+\usepackage{graphicx} % takes care of graphic including machinery
+\usepackage[margin=1in,letterpaper]{geometry} % decreases margins
+\usepackage{cite} % takes care of citations
+\usepackage[final]{hyperref} % adds hyper links inside the generated pdf file
+\hypersetup{
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=blue,        % color of internal links
+    citecolor=blue,        % color of links to bibliography
+    filecolor=magenta,     % color of file links
+    urlcolor=blue
+}
+\usepackage{blindtext}
+%++++++++++++++++++++++++++++++++++++++++
+
+% Do not indent second paragraph
+\setlength{\parindent}{0pt}
+
 \begin{document}
 
-    \pagenumbering{gobble}
-%{\color{red}Diese erste Seite bzw. Frontseite ist frei gestaltbar.}
+    \title{Programming Concepts \& Paradigms\\Rust}
+    \author{Roman Schilter \& Jan-Henrik Preuß\\[0.4cm]{\small Betreuer: Marcel Baumann \& Ruedi Arnold}}
+    \date{May 31, 2024}
+    \maketitle
 
-%%%%%%%%%%% TITLE PAGE
+    \begin{abstract}
+    \end{abstract}
 
-    \begin{titlepage}
-        \begin{figure}[t]
-            \centering\includegraphics[width=0.5\textwidth]{HSLU2022logo}
-            \label{fig:hslu-title}
-        \end{figure}
+    \section{Introduction}
 
-        \begin{center}
-            \textsc{\LARGE{Hochschule Luzern\\}}
-            \textsc{ \LARGE{Computer Science Department\\ }}
-            %\textnormal{ \LARGE{Corso di Laurea Triennale/Magistrale in ???\\}}
-            \vspace{40mm}
-            \textnormal
-            Programming Concepts \& Paradigms\\
-            \vspace{4mm}
-            \fontsize{10mm}{7mm}\selectfont
-            \textup{Rust}\\
-        \end{center}
+    Motivate why you chose the problem that you did. Why is it interesting?
 
-        \vspace{25mm}
-
-        \begin{minipage}[t]{0.47\textwidth}
-            \textnormal{\large{\bf Dozierende\\}}
-            {\large Marcel Baumann \& Ruedi Arnold\\ \\}
-        \end{minipage}\hfill\begin{minipage}[t]{0.47\textwidth}
-                                \raggedleft
-                                \textnormal{\large{\bf Studenten\\}}
-                                {\large Roman Schilter \& Jan-Henrik Preuß}
-        \end{minipage}
-
-        \vspace{20mm}
-
-        \centering{\large{Year 2024 }}
-
-    \end{titlepage}
-
-%    Anforderungen Bericht
-%    § Qualität vor Quantität!
-%    – Wenige Seiten (ca. 2-4) reichen durchaus, max. 5 (bei mehr
-%    gibt's tendenziell Abzug), Inhaltsverzeichnis nicht nötig
-%    § Fokus auf wichtige/ interessante/ spezielle Sprach-
-%    Eigenschaften! (Was anders als bei Java?!...)
-%    § Ergänzend zu den Folien
-%    – Falls interessant/relevant kurze Infos zu Vision,
-%    Geschichte & Verbreitung
-%    – Hauptteil: Die Sprache vorstellen (Ihre 3 bis 7
-%    Fokuspunkte, inkl. Verweise auf Ihren Demo-Code)
-%    – Ihr technisches Team-Fazit
-%    – Persönliches Fazit (je min. 1 Abschnitt pro Team-Mitglied)
-
-%%%%%%%%%%%% TITLE PAGE END
-    \newpage
-
-    \pagenumbering{arabic}
+    \blindtext %delete this line
 
 
-    \section{Kapitel 1}
-    \lipsum[10]
+    \section{Background}
+
+    \blindtext %delete this line
+
+    \section{Methods}
+
+    \section{Results}
 
 
-    \section{Kapitel 2}
+    \blindtext
+
+
+    \section{Conclusions}
+
+    \blindtext
+
+    \section{Future Work}
+
+    \blindtext
+
+%++++++++++++++++++++++++++++++++++++++++
+% References section will be created automatically
+% with inclusion of "thebibliography" environment
+% as it shown below. See text starting with line
+% \begin{thebibliography}{99}
+% Note: with this approach it is YOUR responsibility to put them in order
+% of appearance.
+
+%    \begin{thebibliography}{99}
+%
+%        \bibitem{melissinos}
+%        A.~C. Melissinos and J. Napolitano, \textit{Experiments in Modern Physics},
+%        (Academic Press, New York, 2003).
+%
+%        \bibitem{Cyr}
+%        N.\ Cyr, M.\ T$\hat{e}$tu, and M.\ Breton,
+%% "All-optical microwave frequency standard: a proposal,"
+%        IEEE Trans.\ Instrum.\ Meas.\ \textbf{42}, 640 (1993).
+%
+%        \bibitem{Wiki} \emph{Expected value},  available at
+%        \texttt{http://en.wikipedia.org/wiki/Expected\_value}.
+%
+%    \end{thebibliography}
 
 
 \end{document}
-
