@@ -1,6 +1,6 @@
 % Traits: bounds & associated types
 
-\begin{frame}[fragile,t]{Traits 1}
+\begin{frame}[fragile,t]{Traits}
     Trait definition:
     \begin{lstlisting}[language=Rust,escapechar=@,label={lst:traits1}]
 trait Foo {
@@ -20,15 +20,6 @@ impl Foo for Bar {
     }
 }\end{lstlisting}
 
-\end{frame}
-
-\begin{frame}[fragile,t]{Traits 2}
-    \begin{lstlisting}[language=Rust,escapechar=@,label={lst:traits3}]
-println!("Output: {}", Bar::get_val());
-\end{lstlisting}
-
-    \pause
-    \codeoutput{code/03-traits1.txt}
 \end{frame}
 
 \begin{frame}[fragile,t]{Trait Bounds}
