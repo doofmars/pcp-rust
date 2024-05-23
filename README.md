@@ -58,7 +58,7 @@ Current Rust version is `1.77.2`
 - Clone this project
 - Navigate into the rust folder (i.e. `cd rust`)
 - Run the main.rs file using cargo: `cargo run`
-- Run any binary module using cargo: `cargo run --color=always --bin exercise-prolog-w3-1 --manifest-path /home/jan/git/ch-pcp-rust/rust/exercise-prolog-w3-1/Cargo.toml` 
+- Run any binary module using cargo: `cargo run --color=always --bin exercise-prolog-w3-1 --manifest-path rust/exercise-prolog-w3-1/Cargo.toml` 
 - Or compile any file using the [rustc](https://doc.rust-lang.org/rustc/what-is-rustc.html) compiler i.e. `rustc main.rs`
 
 ## Documentation / Presentation

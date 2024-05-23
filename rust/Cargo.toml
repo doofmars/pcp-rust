@@ -13,6 +13,7 @@ members = [
     "hello-world",
     "exercise-prolog-w3-1",
     "exercise-clojure-w5-2",
+    "exercise-java-w8-4",
     "example-reqwest",
     "example-borrow",
     "example-filter-map-reduce",
