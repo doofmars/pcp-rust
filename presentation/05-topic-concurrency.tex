@@ -1,6 +1,6 @@
 % Concurrency: Threads, Spawn, Results, Channel, panic!
 
-\begin{frame}[fragile,t]{Threads 1}
+\begin{frame}[fragile,t]{Threads}
     Neuer Thread:
     \begin{lstlisting}[language=Rust,escapechar=@,label={lst:threads1-1}]
 let thread = thread::spawn(|| {
@@ -13,24 +13,6 @@ let thread = thread::spawn(|| {
 thread.join();
 \end{lstlisting}
 
-\end{frame}
-
-\begin{frame}[fragile,t]{Threads 2}
-    Thread mit return:
-    \begin{lstlisting}[language=Rust,escapechar=@,label={lst:threads2-1}]
-let thread = thread::spawn(|| {
-    "Text"
-});\end{lstlisting}
-
-    \pause
-    Resultat empfangen:
-    \begin{lstlisting}[language=Rust,escapechar=@,label={lst:threads2-2}]
-let result = thread.join();
-
-println!("Result: {}", result.unwrap());
-    \end{lstlisting}
-
-    \codeoutput{code/05-concurrency1.txt}
 \end{frame}
 
 \begin{frame}[fragile,t]{Thread Channels 1}
