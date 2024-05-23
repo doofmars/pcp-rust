@@ -33,7 +33,7 @@ thread.join();
 
 \end{frame}
 
-\begin{frame}[fragile,t]{Thread Channels 1}
+\begin{frame}[fragile,t]{Thread Channels I}
     Channel erstellen:
     \begin{lstlisting}[language=Rust,escapechar=@,label={lst:thread-channels-1-1}]
 let (sender, receiver) = channel();
@@ -79,7 +79,7 @@ let receiving_thread = thread::spawn(move || {
     }
 \end{frame}
 
-\begin{frame}[fragile,t]{Thread Channels 2}
+\begin{frame}[fragile,t]{Thread Channels II}
     \begin{lstlisting}[language=Rust,escapechar=@,label={lst:thread-channels-2-1}]
 let sending_thread = thread::spawn(move || {
     let data = Data {

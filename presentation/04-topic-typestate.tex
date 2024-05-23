@@ -1,6 +1,6 @@
 % Typestate Programming
 
-\begin{frame}[fragile,t]{Typestate Programming 1}
+\begin{frame}[fragile,t]{Typestate Programming I}
     Den State mit dem Typ darstellen.
     \note<1>{
         \begin{itemize}
@@ -29,7 +29,7 @@
 
 \end{frame}
 
-\begin{frame}[fragile,t]{Typestate Programming 2}
+\begin{frame}[fragile,t]{Typestate Programming II}
     State "Stopped" initialisieren:
     \begin{lstlisting}[language=Rust,escapechar=@,label={lst:typestate-programming-2-1}]
 let car_state: Stopped = Stopped::new();
@@ -65,7 +65,7 @@ println!("Accelerated to {} m/s", new_car_state.get_velocity());
 
 
 
-\begin{frame}[fragile,t]{Typestate Programming 3}
+\begin{frame}[fragile,t]{Typestate Programming III}
     zurück zum State "Stopped"
     \begin{lstlisting}[language=Rust,escapechar=@,label={lst:typestate-programming-3-1}]
 let final_car_state: Stopped = new_car_state.stop_after(
