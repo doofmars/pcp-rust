@@ -12,7 +12,7 @@ trait Foo {
     \pause
     Trait implementation:
     \begin{lstlisting}[language=Rust,escapechar=@,label={lst:traits2}]
-struct Bar {}
+struct Bar;
 
 impl Foo for Bar {
     fn get_val() -> String {
@@ -49,22 +49,4 @@ impl<T> Foo for T {
 
     \pause
     $\longrightarrow$ DEMO
-\end{frame}
-
-\begin{frame}[fragile,t]{Trait Generics}
-    Trait definition:
-    \mylisting{2}{4}{Rust}{Trait mit Generics1}{../rust/example-traits-associated-types/src/main.rs}
-
-    \pause
-    Trait implementation:
-    \mylisting{7}{11}{Rust}{Trait mit Generics2}{../rust/example-traits-associated-types/src/main.rs}
-\end{frame}
-
-\begin{frame}[fragile,t]{Trait Assiozierten Typen}
-    Trait definition:
-    \mylisting{14}{18}{Rust}{Trait mit Assiozierten Typen1}{../rust/example-traits-associated-types/src/main.rs}
-
-    \pause
-    Trait implementation:
-    \mylisting{21}{27}{Rust}{Trait mit Assiozierten Typen2}{../rust/example-traits-associated-types/src/main.rs}
 \end{frame}
