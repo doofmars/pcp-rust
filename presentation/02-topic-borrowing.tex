@@ -1,33 +1,95 @@
 % Borrowing & Move-Semantik
 
 % Example direct code, note the [fragile] annotation
-\begin{frame}[fragile,t]{Reassign a integer value}
+\begin{frame}[fragile,t]{Zuweisung einer Ganzzahl}
     \begin{lstlisting}[language=Rust,escapechar=@,label={lst:borrowing1}]
 fn main() {
-    let s1 = 1;
-    let s2 = s1;
+    let var1 = 1;
+    let var2 = var1;
 
-    println!("the value is: {} and {}", s1, s2);
+    println!("Die Werte sind: {} und {}", var1, var2);
 }\end{lstlisting}
-    \pause % Show output on second slide
+    \pause
     \codeoutput{code/02-borrowing1.txt}
+    \note{
+        Einfache werte können direkt einer neuen variable zugewiesen werden.
+        Wie dies auch in Java möglich ist.
+        Beim Verlassen der \texttt{main()} wird \texttt{var1} und \texttt{var2} aufgeräumt.
+    }
 \end{frame}
 
 % Example direct code, note the [fragile] annotation
-\begin{frame}[fragile,t]{Reassign a String value}
+\begin{frame}[fragile,t]{Zuweisung eines Strings}
     \begin{lstlisting}[
         language=Rust,escapechar=@,label={lst:borrowing2},
         linebackgroundcolor={%
         \btLstHL<1>{}% No highlighting on first slide
-        \btLstHL<2>{3}% Highlight second slide
+        \btLstHL<2>{5}% Highlight second slide
+        },
+    ]
+fn main() {
+    let var1 = String::from("hello");
+    let var2 = var1;
+
+    println!("Die Werte sind: {} und {}", var1, var2);
+}\end{lstlisting}
+    \pause
+    \codeoutput[red]{code/02-borrowing2.txt}
+    \note{
+        Obwohl ähnlich zum beispiel zuvor, sieht Rust \texttt{var1} nach zeile 3 nicht mehr als gültig an. \\
+        Wie bei Java ist ein String in Rust ein komplexer Datentyp. \\
+        Wie zuvor werden die Werte, wenn die main verlassen wird aufgeräumt. \\
+        Wenn die Zuordnung so funktionieren würde, müsste der String zweimal bereinigt werden.
+    }
+\end{frame}
+
+% Example direct code, note the [fragile] annotation
+\begin{frame}[fragile,t]{String an funktion übergeben I}
+    \begin{lstlisting}[
+        language=Rust,escapechar=@,label={lst:borrowing3},
+        linebackgroundcolor={%
+        \btLstHL<1>{}% No highlighting on first slide
+        \btLstHL<2>{7}% Highlight second slide
         },
     ]
 fn main() {
     let s1 = String::from("hello");
-    let s2 = s1;
+    let len = calculate_length(s1);
+    println!("Die Länge von '{}' ist {}.", s1, len);
+}
 
-    println!("the value is: {} and {}", s1, s2);
+fn calculate_length(s: String) -> usize {
+    s.len()
 }\end{lstlisting}
     \pause
-    \codeoutput[red]{code/02-borrowing2.txt}
+    \codeoutput[red]{code/02-borrowing3.txt}
+\end{frame}
+
+\begin{frame}[fragile,t]{String an funktion übergeben II}
+    \begin{lstlisting}[
+        language=Rust,escapechar=@,label={lst:borrowing4},
+        linebackgroundcolor={%
+        \btLstHL<1>{3,7}% No highlighting on first slide
+        \btLstHL<2>{}% Highlight second slide
+        },
+    ]
+fn main() {
+    let s1 = String::from("hello");
+    let len = calculate_length(&s1);
+    println!("Die Länge von '{}' ist {}.", s1, len);
+}
+
+fn calculate_length(s: &String) -> usize {
+    s.len()
+}\end{lstlisting}
+    \only<1>{
+        Übergabe einer Referenz (\texttt{\&})
+        \note{
+            Übergabe einer Referenz (\texttt{\&}) löst das Problem. \\
+            Allerdings wird hier garantiert, dass die Referenz bis zum Ende der Laufzeit valide ist. \\
+            Anders als dies bei Pointern in C der Fall ist.
+        }
+    }
+    \pause
+    \codeoutput{code/02-borrowing4.txt}
 \end{frame}
