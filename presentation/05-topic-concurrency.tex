@@ -8,12 +8,14 @@ let thread = thread::spawn(|| {
 });\end{lstlisting}
 
     \note<1> {
-        Rust kann auch nebenläufigkeit.
-        Mit thread::spawn kann ein neuer Thread gestartet werden. \\
-        Diesem gibt man ein Lambda mit, das im Thread ausgeführt wird. \\
-        Der Thread wird direkt beim spawn gestartet. \\
-        Es gibt keine Möglichkeit einen Thread zu erzeugen und später zu starten. \\
-        Braucht es auch nicht, da das Lambda, einfach in eine Variable geschrieben werden kann.
+        \begin{itemize}
+            \item Rust kann auch nebenläufigkeit.
+            \item Mit thread::spawn kann ein neuer Thread gestartet werden.
+            \item Diesem gibt man ein Lambda mit, das im Thread ausgeführt wird.
+            \item Der Thread wird direkt beim spawn gestartet.
+            \item Es gibt keine Möglichkeit einen Thread zu erzeugen und später zu starten.
+            \item Braucht es auch nicht, da das Lambda, einfach in eine Variable geschrieben werden kann.
+        \end{itemize}
     }
 
     \pause
@@ -23,8 +25,10 @@ thread.join();
 \end{lstlisting}
 
     \note<2>{
-        Mit join auf den Abschluss des Threads gewartet werden \\
-        Dabei erhält man ein Resultat aus dem der Rückgabewert oder ein Fehler aus dem Lambda entgegen genommen werden kann
+        \begin{itemize}
+            \item Mit join auf den Abschluss des Threads gewartet werden
+            \item Dabei erhält man ein Resultat aus dem der Rückgabewert oder ein Fehler aus dem Lambda entgegen genommen werden kann
+        \end{itemize}
     }
 
 \end{frame}
@@ -36,9 +40,11 @@ let (sender, receiver) = channel();
 \end{lstlisting}
 
     \note<1>{
-        Threads können auch zwischeneinander Kommunizieren während beide noch laufen. \\
-        Dazu können channels verwendet werden. \\
-        So erstellt man einen Channel: Dabei erhält man jeweils einen sender und einen receiver für den channel.
+        \begin{itemize}
+            \item Threads können auch zwischeneinander Kommunizieren während beide noch laufen.
+            \item Dazu können channels verwendet werden.
+            \item So erstellt man einen Channel: Dabei erhält man jeweils einen sender und einen receiver für den channel.
+        \end{itemize}
     }
 
     \pause
@@ -60,12 +66,16 @@ let receiving_thread = thread::spawn(move || {
 });\end{lstlisting}
 
     \note<3>{
-        So können die Daten mit dem receiver empfangen werden \\
-        Das move-keyword vor dem lambda erlaubt es innerhalb des Threads den sender/receiver zu verwenden \\
-        Diese variablen werden in den Thread gemoved \\
+        \begin{itemize}
+            \item So können die Daten mit dem receiver empfangen werden
+            \item Das move-keyword vor dem lambda erlaubt es innerhalb des Threads den sender/receiver zu verwenden
+            \item Diese variablen werden in den Thread gemoved
+        \end{itemize}
 
-        Es können mehr als nur Strings über channels gesandt werden, structs gehen zum Beispiel auch. \\
-        Dabei sollten jetzt die Alarmglocken klingeln => was passiert wenn ich den gesendeten Wert verändere.
+        \begin{itemize}
+            \item Es können mehr als nur Strings über channels gesandt werden, structs gehen zum Beispiel auch.
+            \item Dabei sollten jetzt die Alarmglocken klingeln => was passiert wenn ich den gesendeten Wert verändere.
+        \end{itemize}
     }
 \end{frame}
 
@@ -82,9 +92,11 @@ let sending_thread = thread::spawn(move || {
 });\end{lstlisting}
 
     \note{
-        Hier kann man jetzt sehen warum das Ownership Konzept von Rust für threads ein Vorteil ist \\
-        Die Variable wird beim Send and den anderen Thread geschickt, nicht nur der Wert \\
-        Lass uns das mal im Code aunschauen => DEMO
+        \begin{itemize}
+            \item Hier kann man jetzt sehen warum das Ownership Konzept von Rust für threads ein Vorteil ist
+            \item Die Variable wird beim Send and den anderen Thread geschickt, nicht nur der Wert
+            \item Lass uns das mal im Code aunschauen => DEMO
+        \end{itemize}
     }
 
     \pause

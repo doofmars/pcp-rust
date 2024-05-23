@@ -11,10 +11,12 @@ trait Foo {
 }\end{lstlisting}
 
     \note<1>{
-        Rust hat keine Vererbung, aber es gibt Traits \\
-        Traits sind die interfaces von Rust, haben aber noch ein paar Eigenheiten \\
-        So kann ein Trait erstellt werden \\
-        In Traits können Funktionen definiert werden, in diesem Fall mit default implementation
+        \begin{itemize}
+            \item Rust hat keine Vererbung, aber es gibt Traits
+            \item Traits sind die interfaces von Rust, haben aber noch ein paar Eigenheiten
+            \item So kann ein Trait erstellt werden
+            \item In Traits können Funktionen definiert werden, in diesem Fall mit default implementation
+        \end{itemize}
     }
 
     \pause
@@ -29,11 +31,13 @@ impl Foo for Bar {
 }\end{lstlisting}
 
     \note<2>{
-        So kann ein Trait auf einem Struct implementiert werden \\
-        In diesem Fall wird der Trait Foo für das Struct Bar implementiert \\
-        Dabei wird die default implementation von get_val überschrieben \\
-        Traits werden nicht wie bei Java direkt bei der definition des structs implementiert, sondern können komplett
+        \begin{itemize}
+            \item So kann ein Trait auf einem Struct implementiert werden
+            \item In diesem Fall wird der Trait Foo für das Struct Bar implementiert
+            \item Dabei wird die default implementation von get\_val überschrieben
+            \item Traits werden nicht wie bei Java direkt bei der definition des structs implementiert, sondern können komplett
             losgelöst sein => Dies erlaubt ein paar interesannte Dinge:
+        \end{itemize}
     }
 \end{frame}
 
@@ -44,8 +48,10 @@ impl<T: Bar> Foo for T {
 }\end{lstlisting}
 
     \note<1>{
-        Traits können auch generisch implementiert werden \\
-        In diesem Fall wird Foo auf allen structs implementiert, die den Trait Bar implementieren
+        \begin{itemize}
+            \item Traits können auch generisch implementiert werden
+            \item In diesem Fall wird Foo auf allen structs implementiert, die den Trait Bar implementieren
+        \end{itemize}
     }
 
     \pause Auf allen die Bar1 und Bar2 implementieren:
@@ -70,8 +76,10 @@ impl<T> Foo for T {
     $\longrightarrow$ DEMO
 
     \note<4>{
-        Lasst uns das mal im Code anschauen \\
-        DEMO \\
-        Ein Nachteil des ganzen ist, was für Traits ein struct implementiert hat kann ist nicht Übersichtlich
+        \begin{itemize}
+            \item Lasst uns das mal im Code anschauen
+            \item DEMO
+            \item Ein Nachteil des ganzen ist, was für Traits ein struct implementiert hat kann ist nicht Übersichtlich
+        \end{itemize}
     }
 \end{frame}
