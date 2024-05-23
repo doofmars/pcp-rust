@@ -7,11 +7,25 @@ let thread = thread::spawn(|| {
     // do stuff
 });\end{lstlisting}
 
+    \note<1> {
+        Rust kann auch nebenläufigkeit.
+        Mit thread::spawn kann ein neuer Thread gestartet werden. \\
+        Diesem gibt man ein Lambda mit, das im Thread ausgeführt wird. \\
+        Der Thread wird direkt beim spawn gestartet. \\
+        Es gibt keine Möglichkeit einen Thread zu erzeugen und später zu starten. \\
+        Braucht es auch nicht, da das Lambda, einfach in eine Variable geschrieben werden kann.
+    }
+
     \pause
     Thread join:
     \begin{lstlisting}[language=Rust,escapechar=@,label={lst:threads1-2}]
 thread.join();
 \end{lstlisting}
+
+    \note<2>{
+        Mit join auf den Abschluss des Threads gewartet werden \\
+        Dabei erhält man ein Resultat aus dem der Rückgabewert oder ein Fehler aus dem Lambda entgegen genommen werden kann
+    }
 
 \end{frame}
 
@@ -21,6 +35,12 @@ thread.join();
 let (sender, receiver) = channel();
 \end{lstlisting}
 
+    \note<1>{
+        Threads können auch zwischeneinander Kommunizieren während beide noch laufen. \\
+        Dazu können channels verwendet werden. \\
+        So erstellt man einen Channel: Dabei erhält man jeweils einen sender und einen receiver für den channel.
+    }
+
     \pause
     Daten senden:
     \begin{lstlisting}[language=Rust,escapechar=@,label={lst:thread-channels-1-2}]
@@ -28,12 +48,25 @@ let sending_thread = thread::spawn(move || {
     sender.send("important data");
 });\end{lstlisting}
 
+    \note<2>{
+        So kann mit dem sender Daten an den receiver geschickt werden
+    }
+
     \pause
     Daten empfangen:
     \begin{lstlisting}[language=Rust,escapechar=@,label={lst:thread-channels-1-3}]
 let receiving_thread = thread::spawn(move || {
      let data = receiver.recv();
 });\end{lstlisting}
+
+    \note<3>{
+        So können die Daten mit dem receiver empfangen werden \\
+        Das move-keyword vor dem lambda erlaubt es innerhalb des Threads den sender/receiver zu verwenden \\
+        Diese variablen werden in den Thread gemoved \\
+
+        Es können mehr als nur Strings über channels gesandt werden, structs gehen zum Beispiel auch. \\
+        Dabei sollten jetzt die Alarmglocken klingeln => was passiert wenn ich den gesendeten Wert verändere.
+    }
 \end{frame}
 
 \begin{frame}[fragile,t]{Thread Channels 2}
@@ -47,6 +80,12 @@ let sending_thread = thread::spawn(move || {
 
     println!("Data: {}", data);
 });\end{lstlisting}
+
+    \note{
+        Hier kann man jetzt sehen warum das Ownership Konzept von Rust für threads ein Vorteil ist \\
+        Die Variable wird beim Send and den anderen Thread geschickt, nicht nur der Wert \\
+        Lass uns das mal im Code aunschauen => DEMO
+    }
 
     \pause
     $\longrightarrow$ DEMO
