@@ -54,10 +54,72 @@
     \subsection{Borrowing \& Move-Semantik}\label{subsec:borrowing-&-move-semantik}
 
     \subsection{Traits: bounds \& associated types}\label{subsec:traits:-bounds-&-associated-types}
+    Rust hat keine Vererbung.
+    Die Structs, das equivalent einer Klasse in Rust, können nicht mit einem anderen Struct erweitert werden.
+    Es gibt jedoch sogenannte Traits in Rust, welche fast wie die Interfaces in Java sind.
+    Traits können Methoden und optional auch eine Default-Implementation für diese Methoden definieren.
+
+    Der grosse Unterschied zwischen Traits und Interfaces ist jedoch, wie die Traits auf für ein Struct implementiert werden.
+    Anstatt dass es bei der Definition des Structs angegben wird, ist es in einem separaten Code-Block.
+    Das heisst es ist völlig losgelöst von der definition des Structs oder des Traits.
+    Ein Beispiel dazu ist im Crate `rust/example-traits`.
+
+    Leider macht es das nicht einfach für den Entwickler, da nicht immer klar ist, welche Traits auf einem Struct implemtiert sind.
+    Vorallem nicht mit der nächsten Eigenart.
+
+    \subsubsection{Trait Bounds}\label{subsubsec:trait-bounds}
+    Anstatt einen Trait fix auf ein Struct zu implementieren, kann dies auch anhand der bereits implementierten Traits gemacht werden.
+    Zum Beispiel kann TraitX auf allen Structs implementiert werden, die auch TraitY und TraitZ implementieren.
+    So können bestehende Structs oder Traits einfach mit neuen Funktionen erweitert werden.
+    Es ist sogar möglich, einen Trait auf allen zu implementieren.
+    So kann zum Beispiel eine Funktion auf dem String hinzugefügt werden.
+    Ein Beispiel dazu ist im Crate `rust/example-trait-bounds`
+
+    \subsubsection{Traits mit associated types}\label{subsubsec:traits-associated-types}
+    Traits unterstützen auch Generische Typen.
+    Damit kann ein Trait zum Beispiel auf Struct1 mit einen Integer implementiert werden und auf Struct2 mit einem String.
+    In Traits können auch associated types definiert werden.
+    Diese types werden bei der implementation gesetzt und erlauben es, wie Generics auch, den Trait Typen unabhängig zu machen.
+    Der Unterschied ist allerdings, dass der Typ nur einmal gesetzt werden kann.
+    Das heisst wenn der Trait auf unterschiedlichen Structs mit String und mit Integer implementiert wird, kompiliert das Programm nicht.
+    Dies ist nützlich, wenn man dies einschränken will.
+    So kann eine Library zum Beispiel Traits mit assozierten Typen liefern und muss sich nicht darum kümmern,
+        dass die Typen zwischen den Implementationen unterschiedlich sein könnten.
+    Ein Beispiel zu Traits mit variablen Typen ist im Create `rust/example-traits-associated-types`.
 
     \subsection{Typestate Programming}\label{subsec:typestate-programming)}
+    Typestate Programming ist ein Pattern, mit dem der aktuelle State über den Typ abgebildet wird.
+    In Rust bedeutet das, dass jeder State ein Struct ist.
+    Jedes Struct hat Methoden, welche eine Instanz eines anderen Structs zurückgeben.
+    So kann von einem State zum anderen übergegangen werden.
+    Jeder State kann auch zusätzliche Methoden haben, um zusätzliche Informationen zum State zu erhalten.
+    Wenn die Structs in einem eigenen Modul sind, kann mit dem Zugriff-Modifier eingeschränkt werden, wie mit den State interagiert wird.
+    So kann eingeschränkt werden, welches der initiale State ist und welche Übergänge gemacht werden können.
+    Im Crate `rust/example-typestate-programming` gibt es ein Beispiel dazu.
 
-    \subsection{Tasks, Communication, Spawn \& Channels}\label{subsec:tasks-communication-spawn-&-channels}
+    Rust eignet sich sehr gut für dieses Pattern, da durch die fixe Typisierung die States nicht manipuliert werden können.
+    So kann der Entwickler sicherstellen, dass es nie zu einem invaliden Zustand kommen kann.
+
+    \subsection{Concurrency}\label{subsec:concurrency}
+    \subsubsection{Threads}\label{subsubsec:threads}
+    Threads können in Rust mit der Funktion `threads::spawn` gestartet werden.
+    Als Argument muss eine Funktion ohne Parameter mitgegeben werden, welche schlussendlich im Thread ausgeführt wird.
+    Diese Funktion kann einen Wert zurückliefern oder auch mit dem Makro `panic!` einen Fehler werfen.
+    `threads::spawn` liefert eine Instanz eines Threads zurück.
+    Darauf kann die blockierende Funktion `join` aufgerufen, welche ein Resultat zurückliefert.
+    Auf diesem Resultat kann geprüft werden, ob der Thread "gepanicked" hat oder den Rückgabewert auslesen.
+    Ein Beispiel dazu ist im Create `rust/example-threads`.
+
+    \subsubsection{Channels}\label{subsubsec:channels}
+    Channels erlauben die Kommunikation zwischen zwei Threads in Rust.
+    Dabei kann eine Variable von einem Thread an einen anderen geschickt werden.
+    Die Funktion `channel()` liefert ein Tupel mit einem Receiver und einem Sender zurück.
+    Diese können dann jeweils einem Thread übergeben werden.
+
+    Dabei kommt jetzt das Ownership-Konzept von Rust ins Spiel.
+    Wenn ein Thread eine Variable an einen anderen Thread schickt, wird dieser zum Besitzer der Variable.
+    Das heisst wenn der erste Thread die Variable nach der Übertragung verwendet, gibt es einen Kompilierungsfehler.
+    Im Crate `rust/example-channels` ist ein Beispiel dazu.
 
     \subsection{Patterns \& Matching}\label{subsec:patterns-&-matching}
 
@@ -65,17 +127,33 @@
 
 %    Ihr technisches Team-Fazit
 
-
     \section{Team-Fazit}\label{sec:team-fazit}
+    Memory-Safety ist der Verkaufsgrund von Rust.
+    Das ist etwas was andere Sprachen auf diesem Level nicht haben.
+    Dies macht Rust zu einer modernen Sprache, was für die neue Generation von Entwicklern sehr attraktiv ist.
 
-    \blindtext %delete this line
-
+    Durch die Unterstützung im Linux-Kernel und die Gründung der Rust Foundation, konnte Rust den Grundstein legen.
+    Jetzt ist Rust im Aufschwung und wird immer mehr verbreitet.
+    2020 war Rust noch auf Platz 35 der meistverwendeten Sprachen auf GitHub.
+    Seit Ende 2023 ist Rust jetzt auf Platz 20. \footnote{https://innovationgraph.github.com/global-metrics/programming-languages}.
+    Aktuell verwenden etwas mehr als 13\% befragter Entwickler Rust. \footnote{https://survey.stackoverflow.co/2023/#technology}
 % Persönliches Fazit (je min. 1 Abschnitt pro Team-Mitglied)
 
 
     \section{Persönliches Fazit}\label{sec:personliches-fazit}
 
     \subsection{Roman Schilter}\label{subsec:roman}
+    Ich habe wenig bis keine Erfahrung mit Low-Level Sprachen, von daher war das Ownership-Konzept gewöhnungsbedürftig.
+    Der Garbage-Collector hat das Thema für mich immer sauber abstrahiert und ich musste mir nie Gedanken um Memory-Leaks oder ähnliches machen.
+    Von daher bin ich froh, dass ich mir bei Rust auch keine Gedanken darüber machen muss.
+
+    Die Syntax von Rust ist verständlich und intuitiv.
+    Im Gegensatz zu zum Beispiel Clojure, dessen Syntax komplett anders ist, als was ich bisher kannte.
+    Einzig die Pipes bei Lambda-Ausdrücken waren etwas gewöhnungsbedürftig.
+
+    Sich mit Rust auseinander zusetzen hat Spass gemacht und ich kann Rust empfehlen.
+    Wenn ich jemals in den Genuss komme, auf Lowlevel zu Programmieren und die Auswahl zwischen C, C++ oder Rust habe,
+        würde ich Rust wählen.
 
     \subsection{Jan-Henrik Preuß}\label{subsec:jan}
 
