@@ -62,7 +62,7 @@
     Der grosse Unterschied zwischen Traits und Interfaces ist jedoch, wie die Traits auf für ein Struct implementiert werden.
     Anstatt dass es bei der Definition des Structs angegben wird, ist es in einem separaten Code-Block.
     Das heisst es ist völlig losgelöst von der definition des Structs oder des Traits.
-    Ein Beispiel dazu ist im Crate `rust/example-traits`.
+    Ein Beispiel dazu ist in der Crate `rust/example-traits`.
 
     Leider macht es das nicht einfach für den Entwickler, da nicht immer klar ist, welche Traits auf einem Struct implementiert sind.
     Vor allem nicht mit der nächsten Eigenart.
@@ -104,22 +104,22 @@
     \subsubsection{Threads}\label{subsubsec:threads}
     Threads können in Rust mit der Funktion \texttt{threads::spawn} gestartet werden.
     Als Argument muss eine Funktion ohne Parameter mitgegeben werden, welche schlussendlich im Thread ausgeführt wird.
-    Diese Funktion kann einen Wert zurückliefern oder auch mit dem Makro `panic!` einen Fehler werfen.
-    `threads::spawn` liefert eine Instanz eines Threads zurück.
-    Darauf kann die blockierende Funktion `join` aufgerufen, welche ein Resultat zurückliefert.
+    Diese Funktion kann einen Wert zurückliefern oder auch mit dem Makro \texttt{panic!} einen Fehler werfen.
+    \texttt{threads::spawn} liefert eine Instanz eines Threads zurück.
+    Darauf kann die blockierende Funktion \texttt{join} aufgerufen, welche ein Resultat zurückliefert.
     Auf diesem Resultat kann geprüft werden, ob der Thread "gepanicked" hat oder den Rückgabewert auslesen.
-    Ein Beispiel dazu ist im Create `rust/example-threads`.
+    Ein Beispiel dazu ist in der Crate `rust/example-threads`.
 
     \subsubsection{Channels}\label{subsubsec:channels}
     Channels erlauben die Kommunikation zwischen zwei Threads in Rust.
     Dabei kann eine Variable von einem Thread an einen anderen geschickt werden.
-    Die Funktion `channel()` liefert ein Tupel mit einem Receiver und einem Sender zurück.
+    Die Funktion \texttt{channel()} liefert ein Tupel mit einem Receiver und einem Sender zurück.
     Diese können dann jeweils einem Thread übergeben werden.
 
     Dabei kommt jetzt das Ownership-Konzept von Rust ins Spiel.
     Wenn ein Thread eine Variable an einen anderen Thread schickt, wird dieser zum Besitzer der Variable.
     Das heisst wenn der erste Thread die Variable nach der Übertragung verwendet, gibt es einen Kompilierungsfehler.
-    Im Crate `rust/example-channels` ist ein Beispiel dazu.
+    In der Crate `rust/example-channels` ist ein Beispiel dazu.
 
     \subsection{Patterns \& Matching}\label{subsec:patterns-&-matching}
 
