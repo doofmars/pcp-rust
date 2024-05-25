@@ -64,8 +64,8 @@
     Das heisst es ist völlig losgelöst von der definition des Structs oder des Traits.
     Ein Beispiel dazu ist im Crate `rust/example-traits`.
 
-    Leider macht es das nicht einfach für den Entwickler, da nicht immer klar ist, welche Traits auf einem Struct implemtiert sind.
-    Vorallem nicht mit der nächsten Eigenart.
+    Leider macht es das nicht einfach für den Entwickler, da nicht immer klar ist, welche Traits auf einem Struct implementiert sind.
+    Vor allem nicht mit der nächsten Eigenart.
 
     \subsubsection{Trait Bounds}\label{subsubsec:trait-bounds}
     Anstatt einen Trait fix auf ein Struct zu implementieren, kann dies auch anhand der bereits implementierten Traits gemacht werden.
@@ -77,7 +77,7 @@
 
     \subsubsection{Traits mit associated types}\label{subsubsec:traits-associated-types}
     Traits unterstützen auch Generische Typen.
-    Damit kann ein Trait zum Beispiel auf Struct1 mit einen Integer implementiert werden und auf Struct2 mit einem String.
+    Damit kann ein Trait zum Beispiel auf Struct1 mit einem Integer implementiert werden und auf Struct2 mit einem String.
     In Traits können auch associated types definiert werden.
     Diese types werden bei der implementation gesetzt und erlauben es, wie Generics auch, den Trait Typen unabhängig zu machen.
     Der Unterschied ist allerdings, dass der Typ nur einmal gesetzt werden kann.
@@ -85,7 +85,7 @@
     Dies ist nützlich, wenn man dies einschränken will.
     So kann eine Library zum Beispiel Traits mit assozierten Typen liefern und muss sich nicht darum kümmern,
         dass die Typen zwischen den Implementationen unterschiedlich sein könnten.
-    Ein Beispiel zu Traits mit variablen Typen ist im Create `rust/example-traits-associated-types`.
+    Ein Beispiel zu Traits mit variablen Typen ist in der Crate `rust/example-traits-associated-types`.
 
     \subsection{Typestate Programming}\label{subsec:typestate-programming)}
     Typestate Programming ist ein Pattern, mit dem der aktuelle State über den Typ abgebildet wird.
@@ -102,7 +102,7 @@
 
     \subsection{Concurrency}\label{subsec:concurrency}
     \subsubsection{Threads}\label{subsubsec:threads}
-    Threads können in Rust mit der Funktion `threads::spawn` gestartet werden.
+    Threads können in Rust mit der Funktion \texttt{threads::spawn} gestartet werden.
     Als Argument muss eine Funktion ohne Parameter mitgegeben werden, welche schlussendlich im Thread ausgeführt wird.
     Diese Funktion kann einen Wert zurückliefern oder auch mit dem Makro `panic!` einen Fehler werfen.
     `threads::spawn` liefert eine Instanz eines Threads zurück.
