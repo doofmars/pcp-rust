@@ -11,16 +11,17 @@ rand = "0.9.0-alpha.1"
 [workspace]
 members = [
     "hello-world",
-    "exercise-prolog-w3-1",
     "exercise-clojure-w5-2",
     "exercise-java-w8-4",
-    "example-reqwest",
+    "exercise-prolog-w3-1",
     "example-borrow",
-    "example-filter-map-reduce",
-    "example-typestate-programming",
-    "example-traits",
-    "example-trait-bounds",
-    "example-traits-associated-types",
     "example-channels",
-    "example-threads"
+    "example-filter-map-reduce",
+    "example-patterns",
+    "example-reqwest",
+    "example-threads",
+    "example-trait-bounds",
+    "example-traits",
+    "example-traits-associated-types",
+    "example-typestate-programming",
 ]
