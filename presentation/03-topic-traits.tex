@@ -7,7 +7,17 @@ trait Foo {
     fn get_val() -> String {
         String::from("foo")
     }
+
 }\end{lstlisting}
+
+    \note<1>{
+        \begin{itemize}
+            \item Rust hat keine Vererbung, aber es gibt Traits
+            \item Traits sind die interfaces von Rust, haben aber noch ein paar Eigenheiten
+            \item So kann ein Trait erstellt werden
+            \item In Traits können Funktionen definiert werden, in diesem Fall mit default implementation
+        \end{itemize}
+    }
 
     \pause
     Trait implementation:
@@ -20,6 +30,15 @@ impl Foo for Bar {
     }
 }\end{lstlisting}
 
+    \note<2>{
+        \begin{itemize}
+            \item So kann ein Trait auf einem Struct implementiert werden
+            \item In diesem Fall wird der Trait Foo für das Struct Bar implementiert
+            \item Dabei wird die default implementation von get\_val überschrieben
+            \item Traits werden nicht wie bei Java direkt bei der definition des structs implementiert, sondern können komplett
+            losgelöst sein => Dies erlaubt ein paar interesannte Dinge:
+        \end{itemize}
+    }
 \end{frame}
 
 \begin{frame}[fragile,t]{Trait Bounds}
@@ -28,16 +47,39 @@ impl Foo for Bar {
 impl<T: Bar> Foo for T {
 }\end{lstlisting}
 
+    \note<1>{
+        \begin{itemize}
+            \item Traits können auch generisch implementiert werden
+            \item In diesem Fall wird Foo auf allen structs implementiert, die den Trait Bar implementieren
+        \end{itemize}
+    }
+
     \pause Auf allen die Bar1 und Bar2 implementieren:
     \begin{lstlisting}[language=Rust,escapechar=@,label={lst:traitbounds2}]
 impl<T: Bar1 + Bar2> Foo for T {
 }\end{lstlisting}
+
+    \note<2>{
+        Hier wird Foo auf allen structs implementiert, die Bar1 und Bar2 implementieren
+    }
 
     \pause Auf allen:
     \begin{lstlisting}[language=Rust,escapechar=@,label={lst:traitbounds3}]
 impl<T> Foo for T {
 }\end{lstlisting}
 
+    \note<3>{
+        Und so kann ein Trait auf allen Typen implementiert werden
+    }
+
     \pause
     $\longrightarrow$ DEMO
+
+    \note<4>{
+        \begin{itemize}
+            \item Lasst uns das mal im Code anschauen
+            \item DEMO
+            \item Ein Nachteil des ganzen ist, was für Traits ein struct implementiert hat kann ist nicht Übersichtlich
+        \end{itemize}
+    }
 \end{frame}
