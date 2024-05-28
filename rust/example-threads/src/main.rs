@@ -37,7 +37,7 @@ fn example_with_result() {
     println!("Successful result: {}", successful_thread.join().expect("successful thread panicked"));
 
     // check if the failed_thread has panicked
-    if (failed_thread.join().is_err()) {
+    if failed_thread.join().is_err() {
         println!("Failed thread panicked");
     }
 }

@@ -1,4 +1,5 @@
 // Example file for borrowing and move semantik
+// Relevant chapter from the book https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html
 
 // Show a simple reassign
 fn simple_reassign() {
