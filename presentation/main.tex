@@ -101,6 +101,25 @@
 %\setbeameroption{show notes}
 %\setbeameroption{show notes on second screen=right}
 
+\usepackage{tcolorbox}
+
+\definecolor{myPurpleBackground}{HTML}{dcdcff} % light purple
+
+% Define a custom tcolorbox style
+\tcbset{
+    purplebox/.style={
+        colback=myPurpleBackground,    % Background color (25% purple)
+        colframe=myPurpleBackground,   % Frame color (same as background to hide border)
+        width=\linewidth,              % Box width
+        arc=0mm,                       % No corner rounding
+        boxrule=0pt,                   % No box border
+        top=4mm,                       % Top padding
+        bottom=4mm,                    % Bottom padding
+        left=4mm,                      % Left padding
+        right=4mm,                     % Right padding
+    }
+}
+
 %% Debugging
 %\usepackage{showframe}
 
