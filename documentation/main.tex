@@ -12,16 +12,23 @@
     filecolor=magenta,     % color of file links
     urlcolor=blue
 }
-\usepackage{blindtext}
 %++++++++++++++++++++++++++++++++++++++++
+
+% Hurenkinder und Schusterjungen verhindern
+\clubpenalty10000
+\widowpenalty10000
+\displaywidowpenalty=10000
 
 % Do not indent second paragraph
 \setlength{\parindent}{0pt}
 
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+
 \begin{document}
 
     \title{Programming Concepts \& Paradigms\\Rust}
-    \author{Roman Schilter \& Jan-Henrik Preuß\\[0.4cm]{\small Betreuer: Marcel Baumann \& Ruedi Arnold}}
+    \author{Roman Schilter \& Jan-Henrik Preuss\\[0.4cm]{\small Betreuer: Marcel Baumann \& Ruedi Arnold}}
     \date{May 31, 2024}
     \maketitle
 
@@ -31,8 +38,8 @@
     \begin{abstract}
         % Beschreibe das dokument knapp
         Rust ist eine moderne Programmiersprache, die Sicherheit und Geschwindigkeit vereint.
-        Sie wurde von Mozilla 2010 entwickelt und ist Open Source.
-        Rust hat den Anspruch, die Lücke zwischen Low-Level-Programmiersprachen wie C und C++ und High-Level-Programmiersprachen wie Java und Python zu schliessen.
+        Sie wurde mit unterstützung von Mozilla 2010 entwickelt und ist Open Source.
+        Rust hat den Anspruch, die Lücke zwischen Low-Level-Programmiersprachen wie C und C\texttt{++} und High-Level-Programmiersprachen wie Java und Python zu schliessen.
         Dieses Dokument fasst die wichtigsten Konzepte und Paradigmen von Rust im Vergleich zu Java zusammen.
     \end{abstract}
 
@@ -47,11 +54,18 @@
 
     \section{Sprachkonzepte}
 
-    Hier werden die wichtigsten Sprachkonzepte von Rust.
-
-    \blindtext %delete this line
+    Hier werden die wichtigsten Sprachkonzepte von Rust vorgestellt.
+    Um die Kürze des Dokuments zu gewährleisten, wurde auf eingebundenen Quellcode verzichtet.
 
     \subsection{Borrowing \& Move-Semantik}\label{subsec:borrowing-&-move-semantik}
+    Die Borrowing \& Move-Semantik ist eines der wichtigsten Sprachfeatures von Rust.
+    Mit ihr ist es möglich, die Speicherverwaltung auf elegante und abstrakte Weise auszulagern.
+    Dadurch können typische Probleme der Speicherverwaltung umgangen werden\footnote
+    {In unterschiedlichen projekten liegt der Anteil von Speicherfehlern bei \textgreater 60\% \url{https://alexgaynor.net/2020/may/27/science-on-memory-unsafety-and-security/}}.
+    Dies führt zu sicherem Code der auch im Bare-Metal-Bereich eingesetzt werden kann.
+    Variablen, die an andere Methoden übergeben werden, können als Reverenz ausgeliehen werden.
+    Im Gegensatz zu C mit Pointern wird beim Kompilieren geprüft, ob die Verwendung der Referenz gültig ist.
+    Die Crate `rust/example-borrow` zeigt funktionierende Beispiele, wie Variablen übergeben werden können.
 
     \subsection{Traits: bounds \& associated types}\label{subsec:traits:-bounds-&-associated-types}
     Rust kennt keine Vererbung.
@@ -107,7 +121,7 @@
     Diese Funktion kann einen Wert zurückgeben oder mit dem Makro \texttt{panic!} einen Fehler ausgeben.
         \texttt{threads::spawn} gibt eine Instanz eines Threads zurück.
     Darauf kann die blockierende Funktion \texttt{join} aufgerufen werden, die ein Ergebnis zurückgibt.
-    Anhand dieses Ergebnisses kann überprüft werden, ob der Thread "gepanicked" hat oder der Rückgabewert ausgelesen werden.
+    Anhand dieses Ergebnisses kann überprüft werden, ob der Thread \enquote{gepanicked} hat oder der Rückgabewert ausgelesen werden.
     Ein Beispiel hierfür findet sich in der Crate `rust/example-threads`.
 
     \subsubsection{Channels}\label{subsubsec:channels}
@@ -121,12 +135,14 @@
     Das bedeutet, dass es zu einem Kompilierungsfehler kommt, wenn der erste Thread die Variable nach der Übergabe verwendet.
     Ein Beispiel dafür findet sich im Paket `rust/example-channels`.
 
-    \subsection{Patterns \& Matching}\label{subsec:patterns-&-matching}
-
     \subsection{Cargo: Test \& Build}\label{subsec:cargo:-test-&-build}
+    Cargo ist das Build-Werkzeug für Rust, mit dem Standard-Supportfunktionen für die Entwicklung komfortabel ausgeführt werden können.
+    In der Entwicklung ist das kontinuierliche Ausführen von Tests und Builds essentiell, um ein stabiles Produkt zu gewährleisten.
+    Mit Cargo können die Tests gebündelt ausgeführt werden.
+    Im Gegensatz zu Java ist Cargo direkt Teil der Installation und somit direkt verfügbar.
+    Ein einfacher Import der \textit{reqwest} Bibliothek ist in der Crate `rust/example-reqwest` zu finden.
 
 %    Ihr technisches Team-Fazit
-
     \section{Team-Fazit}\label{sec:team-fazit}
     Memory-Safety ist das Verkaufsargument für Rust.
     Das ist etwas, was andere Sprachen auf diesem Level nicht haben.
@@ -137,9 +153,8 @@
     Im Jahr 2020 war Rust noch auf Platz 35 der meistgenutzten Sprachen auf GitHub.
     Seit Ende 2023 liegt Rust nun auf Platz 20. \footnote{https://innovationgraph.github.com/global-metrics/programming-languages}.
     Derzeit verwenden etwas mehr als 13\% der befragten Entwickler Rust. \footnote{https://survey.stackoverflow.co/2023/\#technology}
+
 % Persönliches Fazit (je min. 1 Abschnitt pro Team-Mitglied)
-
-
     \section{Persönliches Fazit}\label{sec:personliches-fazit}
 
     \subsection{Roman Schilter}\label{subsec:roman}
@@ -152,10 +167,15 @@
     Einzig die Pipes bei Lambda-Ausdrücken waren etwas gewöhnungsbedürftig.
 
     Sich mit Rust auseinander zusetzen hat Spass gemacht und ich kann Rust empfehlen.
-    Sollte ich jemals in den Genuss kommen, auf Lowlevel zu programmieren und die Wahl zwischen C, C++ oder Rust haben,
+    Sollte ich jemals in den Genuss kommen, auf Lowlevel zu programmieren und die Wahl zwischen C, C\texttt{++} oder Rust haben,
         würde ich Rust wählen.
 
-    \subsection{Jan-Henrik Preuß}\label{subsec:jan}
+    \subsection{Jan-Henrik Preuss}\label{subsec:jan}
+    Mit Rust habe ich mich dank der Hilfe des Build-Tools Cargo direkt zurechtgefunden,
+    der sehr guten Dokumentation über das online frei verfügbare Rust-Buch~\cite{rust-book}, sowie der exzellenten Fehlermeldungen und IDE-Unterstützung.
+    All das gibt es auch für andere Programmiersprachen oder Frameworks, aber oft nicht so direkt und vor allem nicht so einheitlich.
+    Bei der Recherche für diese Arbeit bin ich in das eine oder andere Rabbit Hole gestolpert, was mir gezeigt hat, wie groß und lebendig die Community von Rust ist.
+    Ich bin gespannt was die Zukunft für Rust bringt und mein nächstes Projekt mit Mikrocontrollern werde ich auf jeden Fall mit Rust lösen.
 
 %++++++++++++++++++++++++++++++++++++++++
 % References section will be created automatically
@@ -165,21 +185,14 @@
 % Note: with this approach it is YOUR responsibility to put them in order
 % of appearance.
 
-%    \begin{thebibliography}{99}
-%
-%        \bibitem{melissinos}
-%        A.~C. Melissinos and J. Napolitano, \textit{Experiments in Modern Physics},
-%        (Academic Press, New York, 2003).
-%
-%        \bibitem{Cyr}
-%        N.\ Cyr, M.\ T$\hat{e}$tu, and M.\ Breton,
-%% "All-optical microwave frequency standard: a proposal,"
-%        IEEE Trans.\ Instrum.\ Meas.\ \textbf{42}, 640 (1993).
-%
-%        \bibitem{Wiki} \emph{Expected value},  available at
-%        \texttt{http://en.wikipedia.org/wiki/Expected\_value}.
-%
-%    \end{thebibliography}
+    \begin{thebibliography}{9}
+
+        \bibitem{rust-book}
+        \emph{The Rust Programming Language, 2nd Edition}.
+        \newblock Steve Klabnik and Carol Nichols.
+        \newblock No Starch Press, 2022.
+        \newblock \url{https://doc.rust-lang.org}
+    \end{thebibliography}
 
 
 \end{document}
